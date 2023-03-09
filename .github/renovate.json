@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base", "group:all", ":dependencyDashboard", "schedule:daily"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["org.objenesis:objenesis"],
+      "allowedVersions": "<=3.3"
+    },
+    {
+      "matchPackageNames": ["com.google.protobuf"],
+      "allowedVersions": "<=3.22.0"
+    }
+  ]
+}

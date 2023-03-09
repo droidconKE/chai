@@ -14,9 +14,6 @@ gen/
 out/
 build/
 
-# Gradle cache
-.gradle
-
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -31,9 +28,18 @@ local.properties
 # the project can be imported from settings.gradle.kts
 *.iml
 .idea/*
+!.idea/copyright
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
 
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandbox
 
 # Android Studio captures folder
 captures/
-
-
