@@ -60,4 +60,7 @@ The specific components have documentation fused in as in any other code project
 - [ ] Sample Application
 
 
+## Contributing
+ Hop on here for a chat and ask questions. NO DMs please :)
+
 
