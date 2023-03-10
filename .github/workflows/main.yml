@@ -88,3 +88,33 @@ jobs:
               run: make clean assemble
             - name: Bundle
               run: make clean bundle
+
+    androidTest:
+        name: Android Test
+        permissions:
+            contents: read
+        runs-on: macos-latest
+        timeout-minutes: 45
+        needs: cancel-previous
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Validate Gradle Wrapper
+              uses: gradle/wrapper-validation-action@v1
+            - name: Copy CI gradle.properties
+              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            - name: Setup JDK
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '11'
+                  cache: 'gradle'
+            - name: Run instrumentation tests
+              uses: reactivecircus/android-emulator-runner@v2
+              with:
+                  api-level: 29 # current max API level supported 29
+                  arch: x86_64
+                  disable-animations: true
+                  disk-size: 6000M
+                  heap-size: 600M
+                  script: make clean android-test

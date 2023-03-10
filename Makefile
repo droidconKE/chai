@@ -1,9 +1,12 @@
 BUILD_TYPE ?= Debug
 GRADLE_ARGS ?= --build-cache
 
-.PHONY: all assemble build bundle clean lint test
+.PHONY: all android-test assemble build bundle clean lint test
 
 all: clean lint test build assemble bundle
+
+android-test:
+	./gradlew connectedCheck -PminifyDebugBuild=false ${GRADLE_ARGS}
 
 assemble:
 	./gradlew assemble${BUILD_TYPE} ${GRADLE_ARGS}
