@@ -1,0 +1,120 @@
+name: Chai 🍵
+
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+
+jobs:
+    cancel-previous:
+        name: Cancel Previous
+        permissions:
+            contents: read
+            actions: write
+        runs-on: ubuntu-latest
+        steps:
+            - name: Cancel Previous Build
+              uses: styfle/cancel-workflow-action@0.11.0
+              with:
+                  access_token: ${{ github.token }}
+
+    lint:
+        name: Linting
+        permissions:
+            contents: read
+        runs-on: ubuntu-latest
+        needs: cancel-previous
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Validate Gradle Wrapper
+              uses: gradle/wrapper-validation-action@v1
+            - name: Copy CI gradle.properties
+              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            - name: Set up JDK
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '11'
+                  cache: 'gradle'
+            - name: Test
+              run: make clean lint
+
+    test:
+        name: Test
+        permissions:
+            contents: read
+        runs-on: ubuntu-latest
+        needs: cancel-previous
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Validate Gradle Wrapper
+              uses: gradle/wrapper-validation-action@v1
+            - name: Copy CI gradle.properties
+              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            - name: Set up JDK
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '11'
+                  cache: 'gradle'
+            - name: Test
+              run: make clean test
+
+    build:
+        name: Build
+        permissions:
+            contents: read
+        runs-on: ubuntu-latest
+        needs: cancel-previous
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Validate Gradle Wrapper
+              uses: gradle/wrapper-validation-action@v1
+            - name: Copy CI gradle.properties
+              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            - name: Set up JDK
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '11'
+                  cache: 'gradle'
+            - name: APK
+              run: make clean assemble
+            - name: Bundle
+              run: make clean bundle
+
+    androidTest:
+        name: Android Test
+        permissions:
+            contents: read
+        runs-on: macos-latest
+        timeout-minutes: 45
+        needs: cancel-previous
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Validate Gradle Wrapper
+              uses: gradle/wrapper-validation-action@v1
+            - name: Copy CI gradle.properties
+              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            - name: Set up JDK
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '11'
+                  cache: 'gradle'
+            - name: Instrumentation Tests
+              uses: reactivecircus/android-emulator-runner@v2
+              with:
+                  api-level: 29 # current max API level supported 29
+                  arch: x86_64
+                  disable-animations: true
+                  disk-size: 6000M
+                  heap-size: 600M
+                  script: make clean android-test
