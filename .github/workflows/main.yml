@@ -109,7 +109,7 @@ jobs:
                   distribution: 'zulu'
                   java-version: '11'
                   cache: 'gradle'
-            - name: Run instrumentation tests
+            - name: Instrumentation Tests
               uses: reactivecircus/android-emulator-runner@v2
               with:
                   api-level: 29 # current max API level supported 29
