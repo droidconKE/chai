@@ -1,16 +1,34 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base", "group:all", ":dependencyDashboard", "schedule:daily"
+    "config:base",
+      "group:all",
+      ":dependencyDashboard",
+      "schedule:daily"
   ],
-  "packageRules": [
-    {
-      "matchPackageNames": ["org.objenesis:objenesis"],
-      "allowedVersions": "<=3.3"
-    },
-    {
-      "matchPackageNames": ["com.google.protobuf"],
-      "allowedVersions": "<=3.22.0"
-    }
+    "baseBranches": [
+        "base",
+        "dev"
+    ],
+    "commitMessageExtra": "{{{currentValue}}} to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+    "packageRules": [
+      {
+          "matchPackagePatterns": [
+              "androidx.compose.compiler:compiler"
+          ],
+          "groupName": "kotlin"
+      },
+      {
+          "matchPackagePatterns": [
+              "org.jetbrains.kotlin.*"
+          ],
+          "groupName": "kotlin"
+      },
+        {
+            "matchPackagePatterns": [
+                "com.google.devtools.ksp"
+            ],
+            "groupName": "kotlin"
+        }
   ]
 }

@@ -1,14 +1,15 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
 }
 
 android {
-    namespace = "com.tamzi.chaidemo"
+    namespace = "com.droidconke.chaidemo"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.tamzi.chaidemo"
+        applicationId = "com.droidconke.chaidemo"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

@@ -4,12 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.tamzi.chaidemo"
+    namespace = "com.droidconke.chaidemo"
     compileSdk = 33
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFile("consumer-rules.pro")

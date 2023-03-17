@@ -14,6 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = ("chai")
 include(":chai")
-include(":chaiswag")
+include(":chaitime")
 include(":chaidemo")
 include(":chailinter")
+include(":dckeswag")
