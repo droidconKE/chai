@@ -14,4 +14,8 @@ To ensure you that your pull request is accepted:
     - Issue(s) affected?
 2. Write descriptive commit message.
 3. Check for unnecessary whitespace with `git diff --check` before committing.
+4. Contribution PRs should come as:
+   1. feature/{...}
+   2. docs/{...}
+   3. fix/{...}
 
