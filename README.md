@@ -22,7 +22,7 @@ This Project shows how you can use this design system in a multi module app mono
 
 ### Structure Of Chai's Design System Project,
 
-The Chai Design System ProjectArchitecture is captured in detail:
+The Chai Design System Project Architecture is captured in detail:
 1. [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
 2. [Architecture](https://github.com/droidconKE/chai/blob/master/docs/architecture.md) -  The architecture of the project
 3. [Chai Design System Architecture](https://github.com/droidconKE/chai/blob/master/docs/chaiArchitecture.md) -  The architecture of the design system
