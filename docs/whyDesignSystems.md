@@ -1,7 +1,7 @@
 # Why Design Systems
 
 ### Challenges as questions
-- How do we create consistency in terms of designs elements that developers use?
+- How do we create consistency regarding design elements that developers use?
 - How can we speed up UI development?
 - Ever evolving droidconKE solutions and apps.
 - How can we make design team and developers focus on larger more complex problems.
