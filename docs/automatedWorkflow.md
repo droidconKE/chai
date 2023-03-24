@@ -1,6 +1,6 @@
 # A note on RenovateBot
 
-`"baseBranches"` are just the branches that renovate bot will raise PRs against.Instead of 
+`"baseBranches"` are just the branches that renovate bot will raise PRs against. Instead of 
 separate branches it will raise it to just this branch specifically 'dependencyUpdates'.
 
 By default renovate bot will group all updates together `"group:all"`.
