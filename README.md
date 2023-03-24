@@ -17,13 +17,12 @@ This is the droidconKE design system.
 
 Link to the [design doc](https://xd.adobe.com/view/eb1ed4ed-fd4d-4ba2-b2f7-a91c7379a022-be4d/screen/cfea72b5-9007-4335-ae86-9162594c094f/)
 
-
 This Project shows how you can use this design system in a multi module app monoRepo set up.
 
 
-### Structure Of Chai's Design System,
+### Structure Of Chai's Design System Project,
 
-The Chai Design System Architecture is captured in detail:
+The Chai Design System Project Architecture is captured in detail:
 1. [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
 2. [Architecture](https://github.com/droidconKE/chai/blob/master/docs/architecture.md) -  The architecture of the project
 3. [Chai Design System Architecture](https://github.com/droidconKE/chai/blob/master/docs/chaiArchitecture.md) -  The architecture of the design system
