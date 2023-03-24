@@ -9,5 +9,5 @@ What ` "groupName": "kotlin"` does is group the
 Kotlin compose and ksp updates together. This groups them together as `kotlin` updates that will be separate from 
 the other changes.
 
-If we have other libraries that are known to wokr together we can always come back and group them 
+If we have other libraries that are known to work together we can always come back and group them 
 together with other package rules separate from all
