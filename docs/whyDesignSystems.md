@@ -7,7 +7,7 @@
 - How can we make design team and developers focus on larger more complex problems.
 - How can we replicate same identity at scale?
 - How can we have a unified language across teams and open source developers?
-- Reduce opinionated ways of implementing UIs that Jetpack Compose and Compose UI has brought to android.
+- Reduce opinionated ways of implementing UIs that Jetpack Compose and Compose UI have brought to android.
 
 
 ### Possible Solutions
