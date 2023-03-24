@@ -13,7 +13,7 @@
 ### Possible Solutions
 - Chai 🍵 design system.
 - This is the droidconKE design system.
-- Implementation is first happening on Android BUt will be scaled to flutter and web adn desktop in the future.
+- Initial implementation focuses on Android but will be scaled to flutter and web and desktop in the future.
 
 
 ### Resources
