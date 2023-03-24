@@ -59,6 +59,6 @@ The specific components have documentation fused in as in any other code project
 
 
 ## Contributing
- Hop on here for a chat and ask questions. NO DMs please :)
+ [Hop on here for a chat and ask questions](https://github.com/droidconKE/chai/discussions). NO DMs please :)
 
 
