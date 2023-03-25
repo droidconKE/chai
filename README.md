@@ -17,13 +17,12 @@ This is the droidconKE design system.
 
 Link to the [design doc](https://xd.adobe.com/view/eb1ed4ed-fd4d-4ba2-b2f7-a91c7379a022-be4d/screen/cfea72b5-9007-4335-ae86-9162594c094f/)
 
-
 This Project shows how you can use this design system in a multi module app monoRepo set up.
 
 
-### Structure Of Chai's Design System,
+### Structure Of Chai's Design System Project,
 
-The Chai Design System Architecture is captured in detail:
+The Chai Design System Project Architecture is captured in detail:
 1. [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
 2. [Architecture](https://github.com/droidconKE/chai/blob/master/docs/architecture.md) -  The architecture of the project
 3. [Chai Design System Architecture](https://github.com/droidconKE/chai/blob/master/docs/chaiArchitecture.md) -  The architecture of the design system
@@ -31,8 +30,7 @@ The Chai Design System Architecture is captured in detail:
 5. [chaiLinter](https://github.com/droidconKE/chai/blob/master/docs/chaiLinter.md) -  Explains the design system linter
 6. [Atoms](https://github.com/droidconKE/chai/blob/master/docs/atoms.md) - Explains the atoms in the design system
 7. [Components](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
-7. [chaidemop](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
-7. [dckeswag](https://github.com/droidconKE/chai/blob/master/docs/.md) -  Design system components
+8. [chaidemop](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
 
 ## Implementing Chai
 
@@ -53,7 +51,7 @@ The specific components have documentation fused in as in any other code project
     - [ ] Release Pipelines
     - [ ] Publishing
       - [ ] Sample App release to playstore: chaidemo
-      - [ ] Sample Apps to playstore: chaitime
+      - [ ] publish to maven
 - [ ] Build System
   - [ ] Build Logic setUP
   - [ ] Convention Plugins setUp
@@ -61,6 +59,6 @@ The specific components have documentation fused in as in any other code project
 
 
 ## Contributing
- Hop on here for a chat and ask questions. NO DMs please :)
+ [Hop on here for a chat and ask questions](https://github.com/droidconKE/chai/discussions). NO DMs please :)
 
 
