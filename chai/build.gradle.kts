@@ -29,6 +29,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.4"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -49,6 +57,17 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
+
+    // Compose
+    implementation("androidx.compose.foundation:foundation:1.4.0")
+
+    // Testing
+    // Compose
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.4.0")
+    testImplementation("androidx.compose.ui:ui-test-junit4:1.4.0")
+
+    // Curiosity
+    testImplementation("io.github.hellocuriosity:test-utils:0.11.3")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.5.0")

@@ -1,27 +1,26 @@
 package com.droidconke.chai.assets
 
-import android.content.Context
-import androidx.test.core.app.ApplicationProvider
 import com.droidconke.chai.exceptions.ChaiException
+import io.github.hellocuriosity.compose.test.ComposeTest
 import org.junit.Assert.assertNotNull
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 
-@RunWith(RobolectricTestRunner::class)
-class AssetProviderTest {
-    private val ctx: Context = ApplicationProvider.getApplicationContext()
+class AssetProviderTest : ComposeTest() {
     private val provider = AssetProvider
     private val image = "image_dckemain.png"
 
     @Test
     fun testImage() {
-        val bitmap = provider.image(ctx, image)
-        assertNotNull(bitmap)
+        composeTestRule.setContent {
+            val bitmap = provider.image(image)
+            assertNotNull(bitmap)
+        }
     }
 
     @Test(expected = ChaiException::class)
     fun testImageFileNotFound() {
-        provider.image(ctx, "non_existent_image.png")
+        composeTestRule.setContent {
+            provider.image("non_existent_image.png")
+        }
     }
 }
