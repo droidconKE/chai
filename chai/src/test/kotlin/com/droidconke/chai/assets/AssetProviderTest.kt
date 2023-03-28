@@ -7,7 +7,7 @@ import org.junit.Test
 
 class AssetProviderTest : ComposeTest() {
     private val provider = AssetProvider
-    private val image = "image_dckemain.png"
+    private val image = "image_dcke_main.png"
 
     @Test
     fun testImage() {
