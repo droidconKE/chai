@@ -12,8 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
-import com.droidconke.chai.assets.ChaiImage
+import com.droidconke.chai.assets.Images
 import com.droidconke.chaidemo.ui.theme.ChaidemoTheme
 
 class ChaiDemoActivity : ComponentActivity() {
@@ -30,7 +29,7 @@ class ChaiDemoActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Image(
-                            bitmap = ChaiImage.DCKE_MAIN(this@ChaiDemoActivity).asImageBitmap(),
+                            bitmap = Images.DCKE_MAIN(),
                             contentDescription = "",
                         )
                         Greeting("Chai")
