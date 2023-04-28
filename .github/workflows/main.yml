@@ -38,7 +38,7 @@ jobs:
               uses: actions/setup-java@v3
               with:
                   distribution: 'zulu'
-                  java-version: '11'
+                  java-version: '17'
                   cache: 'gradle'
             - name: Test
               run: make clean lint
@@ -60,7 +60,7 @@ jobs:
               uses: actions/setup-java@v3
               with:
                   distribution: 'zulu'
-                  java-version: '11'
+                  java-version: '17'
                   cache: 'gradle'
             - name: Test
               run: make clean test
@@ -82,7 +82,7 @@ jobs:
               uses: actions/setup-java@v3
               with:
                   distribution: 'zulu'
-                  java-version: '11'
+                  java-version: '17'
                   cache: 'gradle'
             - name: APK
               run: make clean assemble
@@ -107,7 +107,7 @@ jobs:
               uses: actions/setup-java@v3
               with:
                   distribution: 'zulu'
-                  java-version: '11'
+                  java-version: '17'
                   cache: 'gradle'
             - name: Instrumentation Tests
               uses: reactivecircus/android-emulator-runner@v2
