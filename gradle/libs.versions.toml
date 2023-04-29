@@ -1,0 +1,13 @@
+[versions]
+kotlin = "1.8.20"
+lint = "31.0.0"
+
+
+[libraries]
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+lint-api = { group = "com.android.tools.lint", name = "lint-api", version.ref = "lint" }
+
+
+# Dependencies of the included build-logic
+
+[plugins]
