@@ -15,5 +15,7 @@
      limitations under the License.
 -->
 <resources>
-    <color name="purple_700">#FF3700B3</color>
+
+    <style name="Theme.Chai" parent="android:Theme.Material.Light.NoActionBar" />
+
 </resources>
