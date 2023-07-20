@@ -81,6 +81,6 @@ fun ChaidemoTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content,
-        shapes = Shapes,
+        shapes = Shapes
     )
 }

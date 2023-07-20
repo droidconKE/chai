@@ -26,7 +26,7 @@ import com.droidconke.chailinter.detectors.ChaiDetector
  * This detector checks for incorrect usages of Compose Material APIs over those in
  *  Chai design system.
  */
-class ChaiLinterIssueRegistry: IssueRegistry(){
+class ChaiLinterIssueRegistry : IssueRegistry() {
 
     /* This Lists the various issues that have created to detect based
       on design system.
@@ -40,6 +40,6 @@ class ChaiLinterIssueRegistry: IssueRegistry(){
         vendorName = "Chai",
         identifier = "Chai: lint issue",
         feedbackUrl = "https://github.com/droidconKE/chai/issues/new/choose",
-        contact = "https://github.com/droidconKE/chai",
+        contact = "https://github.com/droidconKE/chai"
     )
 }
