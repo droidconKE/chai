@@ -10,7 +10,7 @@ This will be added in a make file in the future.
 val ktlintVersion = "0.48.2"
 
 initscript {
-    val spotlessVersion = "6.20.0"
+    val spotlessVersion = "6.19.0"
 
     repositories {
         mavenCentral()
