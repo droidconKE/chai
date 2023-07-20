@@ -40,8 +40,18 @@ The Chai Design System Project Architecture is captured in detail:
 
 To Implement chai,
 
-See the example implementation that  exists by running chaidemo that contains the various implementations of the elements of the design system.
-The specific components have documentation fused in as in any other code project
+See the example implementation that  exists by running [chaidemo] that contains the various implementations of the elements of the design system.
+
+### [Running Project]
+Known issue with gradle:
+- If you run into an error when building project, ist probably a false negative.
+- Run(Or just press green play icon on android studio from the left here:
+ `./gradlew sync` and output complete html report should not display errors then
+  `./gradlew tasks` to see a list of tasks you can run from the root of the project 
+
+or just press the gradle icon with the downward arrow at the top right of android studio to sync project with gradle files and you should be ok.
+
+
 
 ### [Tasks 🚧]
 - [ ] Documentation
