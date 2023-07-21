@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2023 droidcoke
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -51,12 +51,12 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerExtensionVersion = "1.5.0"
     }
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2023.05.01")
+    val composeBom = platform("androidx.compose:compose-bom:2023.06.01")
     implementation(composeBom)
 
     implementation("androidx.core:core-ktx")

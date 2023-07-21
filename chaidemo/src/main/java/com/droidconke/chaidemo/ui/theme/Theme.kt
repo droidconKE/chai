@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2023 droidconke
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,6 +81,6 @@ fun ChaidemoTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content,
-        shapes = Shapes,
+        shapes = Shapes
     )
 }

@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2023 droidcoke
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,26 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+tasks.named<Test>("test") {
+    useJUnit()
+}
+
+lint {
+    checkAllWarnings = true
+    warningsAsErrors = true
+}
+
 dependencies {
     compileOnly(libs.kotlin.stdlib)
     compileOnly(libs.lint.api)
+
+    testImplementation(libs.lint.api)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("com.android.tools.lint:lint-tests:31.0.2")
 }
