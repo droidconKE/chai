@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("chaiBuildLogic")
     repositories {
         google()
         mavenCentral()
