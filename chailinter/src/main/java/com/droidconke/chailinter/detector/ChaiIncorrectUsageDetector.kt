@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.droidconke.chailinter.detectors
+package com.droidconke.chailinter.detector
 
 import com.android.tools.lint.client.api.UElementHandler
 import com.android.tools.lint.detector.api.Detector
@@ -28,11 +28,12 @@ import org.jetbrains.uast.*
  * the chai design system. Ideally its to be as dictatorial as possible to prevent people from using 
  * default material designs and moving away from the design system.
  * 
- * incase of a misisng design, then it is recommended to submit an issue and then implement the 
- * component missing. However, we have tried to capture as much as possible in chai
+ * We have tried to capture as much as many UI scenarios as possible in chai. Incase of a missing
+ * design component, then it is recommended to submit an issue and then implement the
+ * component missing in chai.
  */
 
-class ChaiDetector : Detector(), Detector.UastScanner {
+class ChaiIncorrectUsageDetector : Detector(), Detector.UastScanner {
 
     override fun getApplicableUastTypes(): List<Class<out UElement>> {
         return listOf(
@@ -51,7 +52,7 @@ class ChaiDetector : Detector(), Detector.UastScanner {
             }
 
             override fun visitQualifiedReferenceExpression(node: UQualifiedReferenceExpression) {
-                val fqn = (node.receiver.getExpressionType() as? PsiClassReferenceType)
+                val aFunction = (node.receiver.getExpressionType() as? PsiClassReferenceType)
                     ?.reference?.qualifiedName
                     ?: return
 
@@ -63,14 +64,14 @@ class ChaiDetector : Detector(), Detector.UastScanner {
             
         }
     }
-    /*Addding this as an empty array but will be replaced later when adding implementations*/
+    /*Adding this as an empty array but will be replaced later when adding implementations*/
     companion object {
         val ISSUE: Any = EMPTY_ARRAY
     }
 }
 
 /**
- *  METHOD_NAMES are various ways a developer may deviate away from the use of
+ *  COMPONENTS_NAMES are various ways a developer may deviate away from the use of
  *  chai Design system elements and components and use material or material 3 components:
  *
  *  "androidx.compose.material.*" or "androidx.compose.material3.*"
