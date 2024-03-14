@@ -21,14 +21,18 @@ import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.JavaContext
 import com.intellij.psi.PsiMember
 import com.intellij.psi.impl.source.PsiClassReferenceType
-import org.jetbrains.uast.*
+import org.jetbrains.uast.EMPTY_ARRAY
+import org.jetbrains.uast.UCallExpression
+import org.jetbrains.uast.UElement
+import org.jetbrains.uast.UQualifiedReferenceExpression
+import org.jetbrains.uast.USimpleNameReferenceExpression
 
 /**
  * This checks whether there are incorrect usages of Compose Material APIs over equivalents in
- * the chai design system. Ideally its to be as dictatorial as possible to prevent people from using 
+ * the chai design system. Ideally its to be as dictatorial as possible to prevent people from using
  * default material designs and moving away from the design system.
- * 
- * incase of a misisng design, then it is recommended to submit an issue and then implement the 
+ *
+ * incase of a misisng design, then it is recommended to submit an issue and then implement the
  * component missing. However, we have tried to capture as much as possible in chai
  */
 
@@ -41,28 +45,28 @@ class ChaiDetector : Detector(), Detector.UastScanner {
             USimpleNameReferenceExpression::class.java
         )
     }
+
     override fun createUastHandler(context: JavaContext): UElementHandler {
         return object : UElementHandler() {
 
             override fun visitCallExpression(node: UCallExpression) {
                 val name = node.methodName ?: return
                 val wrapperName = node.resolve()?.containingClass?.qualifiedName ?: return
-
             }
 
             override fun visitQualifiedReferenceExpression(node: UQualifiedReferenceExpression) {
                 val fqn = (node.receiver.getExpressionType() as? PsiClassReferenceType)
                     ?.reference?.qualifiedName
                     ?: return
-
             }
 
             override fun visitSimpleNameReferenceExpression(node: USimpleNameReferenceExpression) {
-                val className = (node.resolve() as? PsiMember)?.containingClass?.qualifiedName ?: return
+                val className =
+                    (node.resolve() as? PsiMember)?.containingClass?.qualifiedName ?: return
             }
-            
         }
     }
+
     /*Addding this as an empty array but will be replaced later when adding implementations*/
     companion object {
         val ISSUE: Any = EMPTY_ARRAY
@@ -107,5 +111,5 @@ class ChaiDetector : Detector(), Detector.UastScanner {
  *      ["androidx.compose.material3.bar2",]
  *
  */
-//To be implemented with above format
+// To be implemented with above format
 private val METHOD_NAMES = mapOf<String, Int>()
