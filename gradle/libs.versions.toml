@@ -1,6 +1,6 @@
 [versions]
-kotlin = "1.9.0"
-lint = "31.0.2"
+kotlin = "2.0.0"
+lint = "31.2.2"
 
 
 [libraries]

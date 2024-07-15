@@ -51,12 +51,12 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2023.06.01")
+    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
     implementation(composeBom)
 
     implementation("androidx.core:core-ktx")
