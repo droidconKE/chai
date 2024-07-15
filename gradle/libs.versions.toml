@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.0.0"
-lint = "31.2.2"
+lint = "31.5.1"
 
 
 [libraries]
