@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 /**
  * Copyright 2023 droidcoke
  *
@@ -16,6 +18,7 @@
 plugins {
     `java-library`
     kotlin("jvm")
+    //alias(libs.plugins.jetbrains.kotlin.jvm)
     id("com.android.lint")
 }
 
@@ -25,9 +28,9 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions {
-        jvmTarget = "17"
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
     }
 }
 
@@ -45,6 +48,6 @@ dependencies {
     compileOnly(libs.lint.api)
 
     testImplementation(libs.lint.api)
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("com.android.tools.lint:lint-tests:31.2.2")
+    testImplementation(libs.junit)
+    testImplementation(libs.android.lint.tests)
 }

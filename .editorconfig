@@ -2,7 +2,6 @@
 # This configuration is used by ktlint when spotless invokes it
 [*]
 charset = utf-8
-ij_disabled_rules=no-wildcard-imports,import-ordering,trailing-comma
 end_of_line = crlf
 indent_size = 4
 indent_style = space
