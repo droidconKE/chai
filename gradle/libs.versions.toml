@@ -13,6 +13,7 @@ activityCompose = "1.9.1"
 jetbrainsKotlinJvm = "2.0.0"
 appcompatVersion = "1.7.0"
 materialVersion = "1.12.0"
+compose-plugin = "1.6.11"
 
 [libraries]
 android-lint-tests = { module = "com.android.tools.lint:lint-tests", version.ref = "lintTests" }
@@ -42,3 +43,4 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
