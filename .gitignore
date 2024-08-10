@@ -36,4 +36,6 @@ local.properties
 # Android Studio captures folder
 captures/
 
+# Generated Kotlin folder
+.kotlin
 
