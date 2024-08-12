@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Send
-//import androidx.compose.material.icons.outlined.Save
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -185,7 +184,7 @@ fun CPrimaryOutlinedButtonLightPreview() {
 
 @Preview
 @Composable
-fun CPrimaryOutlinedButtonDarktPreview() {
+fun CPrimaryOutlinedButtonDarkPreview() {
     ChaiTheme(darkTheme = true) {
         COutlinedPrimaryButton(
             onClick = { },

@@ -18,6 +18,7 @@ compose-plugin = "1.6.11"
 runtimeAndroid = "1.6.8"
 material3Android = "1.2.1"
 uiToolingPreviewAndroid = "1.6.8"
+uiTooling = "1.6.8"
 
 [libraries]
 android-lint-tests = { module = "com.android.tools.lint:lint-tests", version.ref = "lintTests" }
@@ -43,6 +44,7 @@ androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 androidx-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
 material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
 
 
 [plugins]

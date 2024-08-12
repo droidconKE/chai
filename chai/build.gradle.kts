@@ -32,6 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.15"
+    }
 }
 
 dependencies {
@@ -51,4 +58,5 @@ dependencies {
     // compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(compose.foundation)
+    debugImplementation(libs.ui.tooling)
 }
