@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import com.droidconke.chai.ChaiTheme
 import com.droidconke.chai.utils.Alpha.AlphaDisabled
 import com.droidconke.chai.utils.CShapes
+import com.droidconke.chai.utils.ChaiPreview
 import com.droidconke.chai.utils.SeparatorSpace
 
 @Composable
@@ -186,6 +187,19 @@ fun CPrimaryOutlinedButtonLightPreview() {
 @Composable
 fun CPrimaryOutlinedButtonDarkPreview() {
     ChaiTheme(darkTheme = true) {
+        COutlinedPrimaryButton(
+            onClick = { },
+            title = PREVIEW_OUTLINE_BUTTON_TITLE,
+            modifier = Modifier.fillMaxWidth(),
+            icon = Icons.AutoMirrored.Outlined.Send
+        )
+    }
+}
+
+@ChaiPreview
+@Composable
+fun PrimaryOutlinedButtonPreview() {
+    ChaiTheme {
         COutlinedPrimaryButton(
             onClick = { },
             title = PREVIEW_OUTLINE_BUTTON_TITLE,

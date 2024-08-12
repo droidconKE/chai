@@ -1,4 +1,4 @@
-## Contributing to chai
+# Contributing to chai
 
 We'd love to accept your patches and suggestions!
 To contribute to readME master template simply open a pull request against the [improvement branch](https://github.com/droidconKE/chaitree/improvements)
@@ -19,3 +19,16 @@ To ensure you that your pull request is accepted:
    2. docs/{...}
    3. fix/{...}
 
+## Compose
+### Preview
+when using compose preview for any component we'd appreciate if you used the `ChaiPreview` instead 
+of the normal `Preview`. Example :
+```kotlin
+
+    @ChaiPreview
+    @Composable
+    fun ChaiComponent(){
+        ...
+    }
+
+```
