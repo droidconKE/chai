@@ -15,8 +15,43 @@
  */
 package com.droidconke.chai.utils
 
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-public val Space5 = 5.dp
-public val Space15 = 5.dp
-public val Space30 = 30.dp
+/*
+* these are units of spacing that can be used in the app.
+* Use these in padding and margin:
+*
+* Usage:
+* .padding(horizontal = Space15, vertical = Space30)
+
+*/
+val Space5 = 5.dp
+val Space15 = 15.dp
+val Space30 = 30.dp
+
+/*
+ * These are spacers that can be used in the app.
+ * Mostly relevant in rows and columns
+ * Usage:
+ * Spacer30()
+ *
+
+*/
+@Composable
+fun Spacer5(){
+    Spacer(Modifier.height(Space5))
+}
+
+@Composable
+fun Spacer15() {
+    Spacer(Modifier.height(Space15))
+}
+@Composable
+fun Spacer30() {
+    Spacer(Modifier.height(Space30))
+}
+
