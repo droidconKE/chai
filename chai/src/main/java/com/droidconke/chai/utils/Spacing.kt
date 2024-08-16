@@ -35,7 +35,7 @@ val Space30 = 30.dp
 
 /*
  * These are spacers that can be used in the app.
- * Mostly relevant in rows and columns
+ * Mostly relevant in rows and columns to create space with other components.
  * Usage:
  * Spacer30()
  *
