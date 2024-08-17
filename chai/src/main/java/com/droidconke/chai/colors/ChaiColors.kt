@@ -32,7 +32,13 @@ import com.droidconke.chai.atoms.ChaiDarkerGrey
 import com.droidconke.chai.atoms.ChaiTeal
 import com.droidconke.chai.atoms.ChaiTealLight
 import com.droidconke.chai.atoms.ChaiWhite
-
+/**
+ * This class has the semantic names of the Chai design system colors.
+ *
+ * What are semantic names you might ask:
+ * * Semantic names are a consistent way to refer to colors based on their purpose in the UI.
+ * * They define how a primitive color(the individual color such as ChaiBlue) will be used throughout a design system
+ * */
 @Immutable
 data class ChaiColors(
     val primary: Color = Color.Unspecified,
