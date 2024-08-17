@@ -26,9 +26,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
-import com.droidconke.chai.atoms.*
-import com.droidconke.chai.atoms.MontserratRegular
-import com.droidconke.chai.atoms.MontserratThin
+import com.droidconke.chai.atoms.ChaiBlack
+import com.droidconke.chai.atoms.ChaiBlue
+import com.droidconke.chai.atoms.ChaiRed
+import com.droidconke.chai.atoms.MontserratSans
 import com.droidconke.chai.chaiColorsPalette
 
 /**
@@ -55,7 +56,7 @@ fun CParagraph(dParagraph: String) {
             color = ChaiBlack,
             fontSize = 12.sp,
             fontWeight = FontWeight.W500,
-            fontFamily = MontserratRegular
+            fontFamily = MontserratSans
         ),
         modifier = Modifier.fillMaxWidth()
     )
@@ -69,7 +70,7 @@ fun CPageTitle(pageTitle: String) {
             color = ChaiBlue,
             fontSize = 33.sp,
             fontWeight = FontWeight.W300,
-            fontFamily = MontserratThin
+            fontFamily = MontserratSans
 
         ),
         modifier = Modifier.fillMaxWidth()
@@ -84,7 +85,7 @@ fun CSubtitle(dSubtitle: String) {
             color = ChaiRed,
             fontSize = 15.sp,
             fontWeight = FontWeight.W700,
-            fontFamily = MontserratRegular
+            fontFamily = MontserratSans
 
         ),
         modifier = Modifier.fillMaxWidth()
@@ -99,7 +100,7 @@ fun CActionText(cAction: String) {
             color = ChaiRed,
             fontSize = 15.sp,
             fontWeight = FontWeight.W700,
-            fontFamily = MontserratRegular
+            fontFamily = MontserratSans
 
         ),
         modifier = Modifier.fillMaxWidth()
@@ -119,7 +120,7 @@ fun ChaiTitle(
             color = titleColor,
             fontSize = 20.sp,
             fontWeight = FontWeight.W700,
-            fontFamily = MontserratBold
+            fontFamily = MontserratSans
         ),
         textAlign = TextAlign.Start
     )
@@ -139,7 +140,7 @@ fun ChaiSubTitle(
             color = titleColor,
             fontSize = 18.sp,
             fontWeight = FontWeight.W700,
-            fontFamily = MontserratBold,
+            fontFamily = MontserratSans,
             lineHeight = 22.sp
         ),
         textAlign = textAlign
@@ -160,7 +161,7 @@ fun ChaiBodyXSmallBold(
             color = textColor,
             fontSize = 12.sp,
             fontWeight = FontWeight.W500,
-            fontFamily = MontserratMedium,
+            fontFamily = MontserratSans,
             lineHeight = 16.sp
         ),
         textAlign = textAlign
@@ -180,7 +181,7 @@ fun ChaiBodyXSmall(
             color = textColor,
             fontSize = 12.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 16.sp
         ),
         textAlign = TextAlign.Start
@@ -201,7 +202,7 @@ fun ChaiBodySmallBold(
             color = textColor,
             fontSize = 14.sp,
             fontWeight = FontWeight.W700,
-            fontFamily = MontserratBold,
+            fontFamily = MontserratSans,
             lineHeight = 20.sp
         ),
         textAlign = TextAlign.Start,
@@ -225,7 +226,7 @@ fun ChaiBodySmall(
             color = textColor,
             fontSize = 14.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 20.sp
         ),
         textAlign = textAlign,
@@ -250,7 +251,7 @@ fun ChaiBodyMediumBold(
             color = textColor,
             fontSize = 16.sp,
             fontWeight = FontWeight.W600,
-            fontFamily = MontserratSemiBold,
+            fontFamily = MontserratSans,
             lineHeight = 20.sp
         ),
         textAlign = textAlign,
@@ -273,7 +274,7 @@ fun ChaiBodyMedium(
             color = textColor,
             fontSize = 16.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 20.sp
         ),
         textAlign = TextAlign.Start,
@@ -295,7 +296,7 @@ fun ChaiBodyLargeBold(
             color = textColor,
             fontSize = 18.sp,
             fontWeight = FontWeight.W600,
-            fontFamily = MontserratSemiBold,
+            fontFamily = MontserratSans,
             lineHeight = 22.sp
         ),
         textAlign = TextAlign.Start
@@ -315,7 +316,7 @@ fun ChaiBodyLarge(
             color = textColor,
             fontSize = 18.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 22.sp
         ),
         textAlign = TextAlign.Start
@@ -335,7 +336,7 @@ fun ChaiTextButtonLight(
             color = textColor,
             fontSize = 13.sp,
             fontWeight = FontWeight.W300,
-            fontFamily = MontserratLight,
+            fontFamily = MontserratSans,
             lineHeight = 16.sp
         ),
         textAlign = TextAlign.Start
@@ -356,7 +357,7 @@ fun CPrimaryButtonText(
             color = textColor,
             fontSize = 18.sp,
             fontWeight = FontWeight.W600,
-            fontFamily = MontserratSemiBold,
+            fontFamily = MontserratSans,
             lineHeight = 22.sp
         ),
         textAlign = TextAlign.Center
@@ -377,7 +378,7 @@ fun ChaiTextLabelLarge(
             color = textColor,
             fontSize = 11.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 16.sp
         ),
         textAlign = textAlign
@@ -397,7 +398,7 @@ fun ChaiTextLabelMedium(
             color = textColor,
             fontSize = 10.sp,
             fontWeight = FontWeight.W400,
-            fontFamily = MontserratRegular,
+            fontFamily = MontserratSans,
             lineHeight = 14.sp
         ),
         textAlign = TextAlign.Start
@@ -417,7 +418,7 @@ fun ChaiTextLabelSmall(
             color = textColor,
             fontSize = 9.sp,
             fontWeight = FontWeight.W300,
-            fontFamily = MontserratLight,
+            fontFamily = MontserratSans,
             lineHeight = 14.sp
         ),
         textAlign = TextAlign.Start
