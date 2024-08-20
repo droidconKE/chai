@@ -23,16 +23,22 @@ import com.droidconke.chai.atoms.ChaiBlue
 import com.droidconke.chai.atoms.ChaiCoal
 import com.droidconke.chai.atoms.ChaiDarkGrey
 import com.droidconke.chai.atoms.ChaiGrey
-import com.droidconke.chai.atoms.ChaiGrey90
+import com.droidconke.chai.atoms.ChaiSteal
+import com.droidconke.chai.atoms.ChaiSilver
 import com.droidconke.chai.atoms.ChaiLightGrey
-import com.droidconke.chai.atoms.ChaiLightGrey90
-import com.droidconke.chai.atoms.ChaiRed
-import com.droidconke.chai.atoms.ChaiSmokeyGrey
+import com.droidconke.chai.atoms.ChaiOrange
 import com.droidconke.chai.atoms.ChaiSubtleGrey
+import com.droidconke.chai.atoms.ChaiDarkerGrey
 import com.droidconke.chai.atoms.ChaiTeal
-import com.droidconke.chai.atoms.ChaiTeal90
+import com.droidconke.chai.atoms.ChaiTealLight
 import com.droidconke.chai.atoms.ChaiWhite
-
+/**
+ * This class has the semantic names of the Chai design system colors.
+ *
+ * What are semantic names you might ask:
+ * * Semantic names are a consistent way to refer to colors based on their purpose in the UI.
+ * * They define how a primitive color(the individual color such as ChaiBlue) will be used throughout a design system
+ * */
 @Immutable
 data class ChaiColors(
     val primary: Color = Color.Unspecified,
@@ -80,81 +86,81 @@ val LocalChaiColorsPalette = staticCompositionLocalOf { ChaiColors() }
 val ChaiLightColorPalette = ChaiColors(
     primary = ChaiBlue,
     background = ChaiWhite,
-    surfaces = ChaiLightGrey,
+    surfaces = ChaiSilver,
     cardsBackground = ChaiWhite,
-    cardsBorderColor = ChaiLightGrey,
-    bottomNavBorderColor = ChaiLightGrey,
+    cardsBorderColor = ChaiSilver,
+    bottomNavBorderColor = ChaiSilver,
     activeBottomNavIconColor = ChaiBlue,
-    inactiveBottomNavIconColor = ChaiGrey90,
+    inactiveBottomNavIconColor = ChaiSteal,
     bottomNavBackgroundColor = ChaiWhite,
-    activeBottomNavTextColor = ChaiRed,
+    activeBottomNavTextColor = ChaiOrange,
     textTitlePrimaryColor = ChaiBlue,
-    textBoldColor = ChaiGrey90,
-    textNormalColor = ChaiGrey90,
-    textWeakColor = ChaiSmokeyGrey,
+    textBoldColor = ChaiSteal,
+    textNormalColor = ChaiSteal,
+    textWeakColor = ChaiSubtleGrey,
     textLabelAndHeadings = ChaiBlue,
     linkTextColorPrimary = ChaiBlue,
     secondaryButtonColor = ChaiBlue,
-    secondaryButtonTextColor = ChaiLightGrey90,
+    secondaryButtonTextColor = ChaiLightGrey,
     outlinedButtonBackgroundColor = ChaiWhite,
     outlinedButtonTextColor = ChaiCoal,
     textButtonColor = ChaiBlue,
-    radioButtonColors = ChaiSmokeyGrey,
-    toggleOffBackgroundColor = ChaiGrey90,
+    radioButtonColors = ChaiSubtleGrey,
+    toggleOffBackgroundColor = ChaiSteal,
     toggleOffIconBackgroundColor = ChaiWhite,
-    toggleOffIconColor = ChaiGrey90,
-    toggleOnBackgroundColor = ChaiRed,
+    toggleOffIconColor = ChaiSteal,
+    toggleOnBackgroundColor = ChaiOrange,
     toggleOnIconBackgroundColor = ChaiWhite,
-    toggleOnIconColor = ChaiRed,
+    toggleOnIconColor = ChaiOrange,
     loadingStateOnCardsColor = ChaiGrey,
-    eventDaySelectorActiveSurfaceColor = ChaiRed,
-    eventDaySelectorInactiveSurfaceColor = ChaiTeal90,
+    eventDaySelectorActiveSurfaceColor = ChaiOrange,
+    eventDaySelectorInactiveSurfaceColor = ChaiTealLight,
     eventDaySelectorActiveTextColor = ChaiWhite,
-    eventDaySelectorInactiveTextColor = ChaiGrey90,
+    eventDaySelectorInactiveTextColor = ChaiSteal,
     badgeBackgroundColor = ChaiCoal,
-    textFieldBackgroundColor = ChaiLightGrey,
-    textFieldBorderColor = ChaiLightGrey,
-    bottomSheetBackgroundColor = ChaiLightGrey90,
-    inactiveMultiSelectButtonBorderColor = ChaiGrey90
+    textFieldBackgroundColor = ChaiSilver,
+    textFieldBorderColor = ChaiSilver,
+    bottomSheetBackgroundColor = ChaiLightGrey,
+    inactiveMultiSelectButtonBorderColor = ChaiSteal
 )
 
 val ChaiDarkColorPalette = ChaiColors(
     primary = ChaiBlack,
-    background = ChaiGrey90,
+    background = ChaiSteal,
     surfaces = ChaiBlack,
     cardsBackground = ChaiBlack,
-    cardsBorderColor = ChaiSubtleGrey,
-    bottomNavBorderColor = ChaiGrey90,
+    cardsBorderColor = ChaiDarkerGrey,
+    bottomNavBorderColor = ChaiSteal,
     activeBottomNavIconColor = ChaiTeal,
     inactiveBottomNavIconColor = ChaiWhite,
     bottomNavBackgroundColor = ChaiBlack,
-    activeBottomNavTextColor = ChaiRed,
+    activeBottomNavTextColor = ChaiOrange,
     textTitlePrimaryColor = ChaiWhite,
-    textBoldColor = ChaiLightGrey,
+    textBoldColor = ChaiSilver,
     textNormalColor = ChaiWhite,
     textWeakColor = ChaiGrey,
-    textLabelAndHeadings = ChaiTeal90,
-    linkTextColorPrimary = ChaiLightGrey,
-    secondaryButtonColor = ChaiTeal90,
-    secondaryButtonTextColor = ChaiGrey90,
+    textLabelAndHeadings = ChaiTealLight,
+    linkTextColorPrimary = ChaiSilver,
+    secondaryButtonColor = ChaiTealLight,
+    secondaryButtonTextColor = ChaiSteal,
     outlinedButtonBackgroundColor = ChaiBlack,
-    outlinedButtonTextColor = ChaiTeal90,
-    textButtonColor = ChaiLightGrey,
+    outlinedButtonTextColor = ChaiTealLight,
+    textButtonColor = ChaiSilver,
     radioButtonColors = ChaiWhite,
-    toggleOffBackgroundColor = ChaiLightGrey,
+    toggleOffBackgroundColor = ChaiSilver,
     toggleOffIconBackgroundColor = ChaiWhite,
-    toggleOffIconColor = ChaiGrey90,
-    toggleOnBackgroundColor = ChaiRed,
+    toggleOffIconColor = ChaiSteal,
+    toggleOnBackgroundColor = ChaiOrange,
     toggleOnIconBackgroundColor = ChaiWhite,
-    toggleOnIconColor = ChaiRed,
+    toggleOnIconColor = ChaiOrange,
     loadingStateOnCardsColor = ChaiDarkGrey,
-    eventDaySelectorActiveSurfaceColor = ChaiRed,
-    eventDaySelectorInactiveSurfaceColor = ChaiTeal90,
+    eventDaySelectorActiveSurfaceColor = ChaiOrange,
+    eventDaySelectorInactiveSurfaceColor = ChaiTealLight,
     eventDaySelectorActiveTextColor = ChaiWhite,
     eventDaySelectorInactiveTextColor = ChaiWhite,
     badgeBackgroundColor = ChaiBlack,
-    textFieldBackgroundColor = ChaiGrey90,
-    textFieldBorderColor = ChaiSmokeyGrey,
+    textFieldBackgroundColor = ChaiSteal,
+    textFieldBorderColor = ChaiSubtleGrey,
     bottomSheetBackgroundColor = ChaiBlack,
     inactiveMultiSelectButtonBorderColor = ChaiGrey
 )
