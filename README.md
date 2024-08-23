@@ -1,6 +1,4 @@
 
-
-[![Qodana](https://github.com/droidconKE/chai/actions/workflows/qodana.yml/badge.svg)](https://github.com/droidconKE/chai/actions/workflows/qodana.yml)
 [![Chai CI 🍵](https://github.com/droidconKE/chai/actions/workflows/main.yml/badge.svg)](https://github.com/droidconKE/chai/actions/workflows/main.yml)
 
 
@@ -8,6 +6,7 @@
   <a href="https://github.com/droidconKE/droidconKE2022Android">
     <img src="https://raw.githubusercontent.com/droidconKE/iconPack/master/images/chaicover.png" alt="Chai Design Logo" width=330 height=150>
   </a>
+</p>
 
 ## Chai Design System
 ---

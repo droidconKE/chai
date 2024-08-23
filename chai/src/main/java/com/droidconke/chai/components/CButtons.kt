@@ -36,7 +36,7 @@ import com.droidconke.chai.ChaiTheme
 import com.droidconke.chai.utils.Alpha.AlphaDisabled
 import com.droidconke.chai.utils.CShapes
 import com.droidconke.chai.utils.ChaiPreview
-import com.droidconke.chai.utils.SeparatorSpace
+import com.droidconke.chai.utils.Space5
 
 @Composable
 fun CButton(
@@ -110,7 +110,7 @@ fun COutlinedPrimaryButton(
         colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.primary)
     ) {
         Icon(imageVector = icon, contentDescription = "", modifier = Modifier.padding(5.dp))
-        SeparatorSpace()
+        Space5
         CPrimaryButtonText(text = title, textAllCaps = false)
     }
 }
