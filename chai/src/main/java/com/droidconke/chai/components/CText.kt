@@ -82,7 +82,7 @@ fun CSubtitle(dSubtitle: String) {
     Text(
         text = dSubtitle,
         style = TextStyle(
-            color = ChaiRed,
+            color = ChaiOrange,
             fontSize = 15.sp,
             fontWeight = FontWeight.W700,
             fontFamily = MontserratSans
@@ -97,7 +97,7 @@ fun CActionText(cAction: String) {
     Text(
         text = cAction,
         style = TextStyle(
-            color = ChaiRed,
+            color = ChaiOrange,
             fontSize = 15.sp,
             fontWeight = FontWeight.W700,
             fontFamily = MontserratSans

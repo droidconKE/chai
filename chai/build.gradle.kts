@@ -71,7 +71,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // compose
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(compose.foundation)
+    //implementation(platform(libs.androidx.compose.bom))
+    //implementation(compose.foundation)
     debugImplementation(libs.ui.tooling)
 }

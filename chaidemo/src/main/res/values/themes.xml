@@ -18,5 +18,6 @@
 
     <style name="Theme.Chaidemo" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:navigationBarColor">#ffffff</item>
     </style>
 </resources>
