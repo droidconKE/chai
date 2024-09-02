@@ -26,9 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
-import com.droidconke.chai.atoms.ChaiBlack
-import com.droidconke.chai.atoms.ChaiBlue
-import com.droidconke.chai.atoms.ChaiRed
+import com.droidconke.chai.atoms.*
 import com.droidconke.chai.atoms.MontserratSans
 import com.droidconke.chai.chaiColorsPalette
 

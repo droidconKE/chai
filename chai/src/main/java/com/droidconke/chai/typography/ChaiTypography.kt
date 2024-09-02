@@ -1,17 +1,123 @@
 package com.droidconke.chai.typography
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import com.droidconke.chai.ChaiTheme
+import com.droidconke.chai.atoms.MontserratSans
+import com.droidconke.chai.utils.ChaiPreview
 
-private val ChaiDisplayTextStyle = TextStyle(fontSize = 45.sp)
-private val ChaiTitleTextStyle = TextStyle(fontSize = 32.sp)
-private val ChaiHeaderTextStyle = TextStyle(fontSize = 22.sp)
-private val ChaiParagraphTextStyle = TextStyle(fontSize = 16.sp)
-private val ChaiBodyTextStyle = TextStyle(fontSize = 14.sp)
-private val ChaiLabelTextStyle = TextStyle(fontSize = 12.sp)
+private val DUMMY_CHAI_TEXT = "Design systems provide guidelines and reusable components to ensure consistent and efficient design across digital products, improving user experience and streamlining team workflows."
+
+private val ChaiDisplayTextStyle = TextStyle(
+    fontSize = 45.sp,
+    fontWeight = FontWeight.Bold,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.25.em
+)
+
+@ChaiPreview
+@Composable
+private fun ChaiDisplayTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiDisplayTextStyle)
+    }
+}
+
+private val ChaiTitleTextStyle = TextStyle(
+    fontSize = 32.sp,
+    fontWeight = FontWeight.Bold,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.25.em
+)
+@ChaiPreview
+@Composable
+private fun ChaiTitleTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiTitleTextStyle)
+    }
+}
+
+private val ChaiHeaderTextStyle = TextStyle(
+    fontSize = 22.sp,
+    fontWeight = FontWeight.SemiBold,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.2.em,
+)
+@ChaiPreview
+@Composable
+private fun ChaiHeaderTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiHeaderTextStyle)
+    }
+}
+
+private val ChaiParagraphTextStyle = TextStyle(
+    fontSize = 16.sp,
+    fontWeight = FontWeight.Normal,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.1.em,
+)
+@ChaiPreview
+@Composable
+private fun ChaiParagraphTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiParagraphTextStyle)
+    }
+}
+
+private val ChaiBodyTextStyle = TextStyle(
+    fontSize = 14.sp,
+    fontWeight = FontWeight.Medium,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.1.em,
+)
+@ChaiPreview
+@Composable
+private fun ChaiBodyTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiBodyTextStyle)
+    }
+}
+
+private val ChaiLabelTextStyle = TextStyle(
+    fontSize = 12.sp,
+    fontWeight = FontWeight.Bold,
+    lineHeightStyle = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    ),
+    lineHeight = 1.1.em,
+)
+@ChaiPreview
+@Composable
+private fun ChaiLabelTextPreview(){
+    ChaiTheme {
+        Text(text = DUMMY_CHAI_TEXT, style = ChaiLabelTextStyle)
+    }
+}
 
 data class ChaiTypography(
     val display: TextStyle = ChaiDisplayTextStyle,
@@ -20,7 +126,7 @@ data class ChaiTypography(
     val paragraph: TextStyle = ChaiParagraphTextStyle,
     val body: TextStyle = ChaiBodyTextStyle,
     val label: TextStyle = ChaiLabelTextStyle
-){
+) {
     companion object {
         val Default = ChaiBodyTextStyle
     }
