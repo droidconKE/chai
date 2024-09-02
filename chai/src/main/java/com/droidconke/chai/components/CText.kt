@@ -15,7 +15,10 @@
  */
 package com.droidconke.chai.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,10 +28,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.droidconke.chai.ChaiTheme
 import com.droidconke.chai.atoms.*
 import com.droidconke.chai.atoms.MontserratSans
 import com.droidconke.chai.chaiColorsPalette
+import com.droidconke.chai.colors.LocalChaiColorsPalette
+import com.droidconke.chai.typography.LocalChaiTypography
+import com.droidconke.chai.utils.ChaiPreview
 
 /**
  * CText:
@@ -42,6 +50,89 @@ import com.droidconke.chai.chaiColorsPalette
  * [KahawaLove](https://github.com/tamzi/KahawaLove)
  *
  * */
+@Composable
+fun ChaiTextDisplay(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.header,
+        color = color
+    )
+}
+
+@Composable
+fun ChaiTextTitle(
+    text: String, modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.title,
+        color = color
+    )
+}
+
+@Composable
+fun ChaiTextHeader(
+    text: String, modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.header,
+        color = color
+    )
+}
+
+@Composable
+fun ChaiTextBody(
+    text: String, modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.body,
+        color = color
+    )
+}
+
+@Composable
+fun ChaiTextLabel(
+    text: String, modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.label,
+        color = color
+    )
+}
+
+@ChaiPreview
+@Composable
+fun ChaiTextsPreview() {
+    ChaiTheme {
+        Column(
+            modifier = Modifier
+                .background(LocalChaiColorsPalette.current.surfaces)
+                .padding(16.dp)
+        ) {
+            ChaiTextDisplay(text = "ChaiTextDisplay")
+            ChaiTextTitle(text = "ChaiTextTitle")
+            ChaiTextHeader(text = "ChaiTextHeader")
+            ChaiTextBody(text = "ChaiTextBody")
+            ChaiTextLabel(text = "ChaiTextLabel")
+        }
+    }
+}
 
 /**
  * Title based fonts
