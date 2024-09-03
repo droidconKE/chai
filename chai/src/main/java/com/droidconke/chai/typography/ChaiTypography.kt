@@ -67,7 +67,7 @@ private fun ChaiHeaderTextPreview(){
 
 private val ChaiButtonTextStyle = TextStyle(
     fontSize = 16.sp,
-    fontWeight = FontWeight.Normal,
+    fontWeight = FontWeight.SemiBold,
     lineHeightStyle = LineHeightStyle(
         alignment = LineHeightStyle.Alignment.Center,
         trim = LineHeightStyle.Trim.None

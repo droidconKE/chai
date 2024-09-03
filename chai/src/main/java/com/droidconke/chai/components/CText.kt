@@ -17,23 +17,13 @@ package com.droidconke.chai.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.droidconke.chai.ChaiTheme
-import com.droidconke.chai.atoms.*
-import com.droidconke.chai.atoms.MontserratSans
-import com.droidconke.chai.chaiColorsPalette
 import com.droidconke.chai.colors.LocalChaiColorsPalette
 import com.droidconke.chai.typography.LocalChaiTypography
 import com.droidconke.chai.utils.ChaiPreview
@@ -66,7 +56,8 @@ fun ChaiTextDisplay(
 
 @Composable
 fun ChaiTextTitle(
-    text: String, modifier: Modifier = Modifier,
+    text: String,
+    modifier: Modifier = Modifier,
     color: Color = LocalChaiColorsPalette.current.textNormalColor
 ) {
     Text(
@@ -79,7 +70,8 @@ fun ChaiTextTitle(
 
 @Composable
 fun ChaiTextHeader(
-    text: String, modifier: Modifier = Modifier,
+    text: String,
+    modifier: Modifier = Modifier,
     color: Color = LocalChaiColorsPalette.current.textNormalColor
 ) {
     Text(
@@ -92,7 +84,8 @@ fun ChaiTextHeader(
 
 @Composable
 fun ChaiTextBody(
-    text: String, modifier: Modifier = Modifier,
+    text: String,
+    modifier: Modifier = Modifier,
     color: Color = LocalChaiColorsPalette.current.textNormalColor
 ) {
     Text(
@@ -104,8 +97,23 @@ fun ChaiTextBody(
 }
 
 @Composable
+internal fun ChaiTextButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = LocalChaiColorsPalette.current.textNormalColor
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        style = LocalChaiTypography.current.button,
+        color = color,
+    )
+}
+
+@Composable
 fun ChaiTextLabel(
-    text: String, modifier: Modifier = Modifier,
+    text: String,
+    modifier: Modifier = Modifier,
     color: Color = LocalChaiColorsPalette.current.textNormalColor
 ) {
     Text(
@@ -129,387 +137,8 @@ fun ChaiTextsPreview() {
             ChaiTextTitle(text = "ChaiTextTitle")
             ChaiTextHeader(text = "ChaiTextHeader")
             ChaiTextBody(text = "ChaiTextBody")
+            ChaiTextButton(text = "ChaiTextButton")
             ChaiTextLabel(text = "ChaiTextLabel")
         }
     }
-}
-
-/**
- * Title based fonts
- * */
-@Composable
-fun CParagraph(dParagraph: String) {
-    Text(
-        text = dParagraph,
-        style = TextStyle(
-            color = ChaiBlack,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.W500,
-            fontFamily = MontserratSans
-        ),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun CPageTitle(pageTitle: String) {
-    Text(
-        text = pageTitle,
-        style = TextStyle(
-            color = ChaiBlue,
-            fontSize = 33.sp,
-            fontWeight = FontWeight.W300,
-            fontFamily = MontserratSans
-
-        ),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun CSubtitle(dSubtitle: String) {
-    Text(
-        text = dSubtitle,
-        style = TextStyle(
-            color = ChaiOrange,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.W700,
-            fontFamily = MontserratSans
-
-        ),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun CActionText(cAction: String) {
-    Text(
-        text = cAction,
-        style = TextStyle(
-            color = ChaiOrange,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.W700,
-            fontFamily = MontserratSans
-
-        ),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun ChaiTitle(
-    modifier: Modifier = Modifier,
-    titleText: String,
-    titleColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = titleText,
-        style = TextStyle(
-            color = titleColor,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.W700,
-            fontFamily = MontserratSans
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun ChaiSubTitle(
-    modifier: Modifier = Modifier,
-    titleText: String,
-    titleColor: Color = Color.Unspecified,
-    textAlign: TextAlign? = TextAlign.Start
-) {
-    Text(
-        modifier = modifier,
-        text = titleText,
-        style = TextStyle(
-            color = titleColor,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W700,
-            fontFamily = MontserratSans,
-            lineHeight = 22.sp
-        ),
-        textAlign = textAlign
-    )
-}
-
-@Composable
-fun ChaiBodyXSmallBold(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    textAlign: TextAlign? = TextAlign.Start
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.W500,
-            fontFamily = MontserratSans,
-            lineHeight = 16.sp
-        ),
-        textAlign = textAlign
-    )
-}
-
-@Composable
-fun ChaiBodyXSmall(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 16.sp
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun ChaiBodySmallBold(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    maxLines: Int = Int.MAX_VALUE
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.W700,
-            fontFamily = MontserratSans,
-            lineHeight = 20.sp
-        ),
-        textAlign = TextAlign.Start,
-        maxLines = maxLines
-    )
-}
-
-@Composable
-fun ChaiBodySmall(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    textAlign: TextAlign = TextAlign.Start,
-    maxLines: Int = Int.MAX_VALUE,
-    minLines: Int = 1
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 20.sp
-        ),
-        textAlign = textAlign,
-        maxLines = maxLines,
-        minLines = minLines,
-        overflow = TextOverflow.Ellipsis
-    )
-}
-
-@Composable
-fun ChaiBodyMediumBold(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    textAlign: TextAlign = TextAlign.Start,
-    maxLines: Int = Int.MAX_VALUE
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.W600,
-            fontFamily = MontserratSans,
-            lineHeight = 20.sp
-        ),
-        textAlign = textAlign,
-        maxLines = maxLines,
-        overflow = TextOverflow.Ellipsis
-    )
-}
-
-@Composable
-fun ChaiBodyMedium(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    maxLines: Int = Int.MAX_VALUE
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 20.sp
-        ),
-        textAlign = TextAlign.Start,
-        maxLines = maxLines,
-        overflow = TextOverflow.Ellipsis
-    )
-}
-
-@Composable
-fun ChaiBodyLargeBold(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W600,
-            fontFamily = MontserratSans,
-            lineHeight = 22.sp
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun ChaiBodyLarge(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 22.sp
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun ChaiTextButtonLight(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText.uppercase(),
-        style = TextStyle(
-            color = textColor,
-            fontSize = 13.sp,
-            fontWeight = FontWeight.W300,
-            fontFamily = MontserratSans,
-            lineHeight = 16.sp
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun CPrimaryButtonText(
-    modifier: Modifier = Modifier,
-    text: String,
-    textAllCaps: Boolean = false,
-    textColor: Color = MaterialTheme.chaiColorsPalette.textButtonColor
-) {
-    Text(
-        modifier = modifier,
-        text = if (textAllCaps) text.uppercase() else text,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W600,
-            fontFamily = MontserratSans,
-            lineHeight = 22.sp
-        ),
-        textAlign = TextAlign.Center
-    )
-}
-
-@Composable
-fun ChaiTextLabelLarge(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified,
-    textAlign: TextAlign = TextAlign.Start
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 11.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 16.sp
-        ),
-        textAlign = textAlign
-    )
-}
-
-@Composable
-fun ChaiTextLabelMedium(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 10.sp,
-            fontWeight = FontWeight.W400,
-            fontFamily = MontserratSans,
-            lineHeight = 14.sp
-        ),
-        textAlign = TextAlign.Start
-    )
-}
-
-@Composable
-fun ChaiTextLabelSmall(
-    modifier: Modifier = Modifier,
-    bodyText: String,
-    textColor: Color = Color.Unspecified
-) {
-    Text(
-        modifier = modifier,
-        text = bodyText,
-        style = TextStyle(
-            color = textColor,
-            fontSize = 9.sp,
-            fontWeight = FontWeight.W300,
-            fontFamily = MontserratSans,
-            lineHeight = 14.sp
-        ),
-        textAlign = TextAlign.Start
-    )
 }
