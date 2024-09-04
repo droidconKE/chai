@@ -42,16 +42,16 @@ val Space30 = 30.dp
 
 */
 @Composable
-fun Spacer5(){
+fun spacer5() {
     Spacer(Modifier.height(Space5))
 }
 
 @Composable
-fun Spacer15() {
+fun spacer15() {
     Spacer(Modifier.height(Space15))
 }
+
 @Composable
-fun Spacer30() {
+fun spacer30() {
     Spacer(Modifier.height(Space30))
 }
-

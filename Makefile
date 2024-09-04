@@ -28,3 +28,6 @@ test:
 
 spotless:
 	./gradlew --init-script gradle/init.gradle.kts -q spotless
+
+ktlint:
+	./gradlew --init-script gradle/init.gradle.kts -q ktlintFormat

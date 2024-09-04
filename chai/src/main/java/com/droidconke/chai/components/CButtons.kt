@@ -85,10 +85,11 @@ fun CPrimaryButton(
         onClick = onClick,
         isEnabled = isEnabled,
         modifier = modifier,
-        colors = ButtonDefaults.buttonColors(
-            contentColor = MaterialTheme.colorScheme.primary,
-            disabledContentColor = MaterialTheme.colorScheme.primary.copy(alpha = AlphaDisabled)
-        ),
+        colors =
+            ButtonDefaults.buttonColors(
+                contentColor = MaterialTheme.colorScheme.primary,
+                disabledContentColor = MaterialTheme.colorScheme.primary.copy(alpha = AlphaDisabled)
+            ),
         shape = CShapes.extraLarge,
         content = {
             CPrimaryButtonText(text = title, textAllCaps = true)
@@ -107,7 +108,10 @@ fun COutlinedPrimaryButton(
         onClick = onClick,
         modifier = modifier,
         shape = CShapes.extraLarge,
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.primary)
+        colors =
+            ButtonDefaults.outlinedButtonColors(
+                contentColor = MaterialTheme.colorScheme.primary
+            )
     ) {
         Icon(imageVector = icon, contentDescription = "", modifier = Modifier.padding(5.dp))
         Space5

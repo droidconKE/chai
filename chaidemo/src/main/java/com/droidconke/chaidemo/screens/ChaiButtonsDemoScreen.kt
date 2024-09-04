@@ -12,7 +12,6 @@ import com.droidconke.chai.atoms.ChaiWhite
 import com.droidconke.chai.components.CPageTitle
 import com.droidconke.chai.utils.Space15
 import com.droidconke.chai.utils.Space30
-import com.droidconke.chai.utils.Space5
 
 @Preview(showBackground = true)
 @Composable
@@ -26,7 +25,6 @@ fun ChaiButtonsScreen() {
         ) {
             Space30
             CPageTitle("chai Buttons Demo Screens")
-
         }
     }
 }

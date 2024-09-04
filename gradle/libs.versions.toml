@@ -1,16 +1,17 @@
 [versions]
-agp = "8.5.2"
-kotlin = "2.0.10"
+agp = "8.6.0"
+kotlin = "2.0.20"
 junit = "4.13.2"
-composeBom = "2024.06.00"
-lint = "31.5.2"
-lintTests = "31.5.2"
+composeBom = "2024.08.00"
+lint = "31.6.0"
+lintTests = "31.6.0"
 coreKtx = "1.13.1"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
-jetbrainsKotlinJvm = "2.0.10"
+jetbrainsKotlinJvm = "2.0.20"
+ktlint = "12.1.1"
 appcompatVersion = "1.7.0"
 material3 = "1.2.1"
 materialVersion = "1.12.0"
@@ -54,3 +55,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

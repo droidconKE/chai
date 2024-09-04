@@ -26,4 +26,3 @@ class ChaiDemoActivity : ComponentActivity() {
         setContent { ChaiDemoMainScreen() }
     }
 }
-

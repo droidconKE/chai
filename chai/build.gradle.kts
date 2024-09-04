@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -45,7 +46,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(platform(libs.androidx.compose.bom))
-    implementation (libs.material3)
+    implementation(libs.material3)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.runtime.android)
@@ -56,7 +57,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // compose
-    //implementation(platform(libs.androidx.compose.bom))
-    //implementation(compose.foundation)
+    // implementation(platform(libs.androidx.compose.bom))
+    // implementation(compose.foundation)
     debugImplementation(libs.ui.tooling)
 }
