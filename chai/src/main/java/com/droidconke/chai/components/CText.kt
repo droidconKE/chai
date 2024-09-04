@@ -44,12 +44,12 @@ import com.droidconke.chai.utils.ChaiPreview
 fun ChaiTextDisplay(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.header,
+        style = ChaiTheme.typography.display,
         color = color
     )
 }
@@ -58,12 +58,12 @@ fun ChaiTextDisplay(
 fun ChaiTextTitle(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.title,
+        style = ChaiTheme.typography.title,
         color = color
     )
 }
@@ -72,12 +72,12 @@ fun ChaiTextTitle(
 fun ChaiTextHeader(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.header,
+        style = ChaiTheme.typography.header,
         color = color
     )
 }
@@ -86,12 +86,12 @@ fun ChaiTextHeader(
 fun ChaiTextBody(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.body,
+        style = ChaiTheme.typography.body,
         color = color
     )
 }
@@ -100,12 +100,12 @@ fun ChaiTextBody(
 internal fun ChaiTextButton(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.button,
+        style = ChaiTheme.typography.button,
         color = color,
     )
 }
@@ -114,12 +114,12 @@ internal fun ChaiTextButton(
 fun ChaiTextLabel(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = LocalChaiColorsPalette.current.textNormalColor
+    color: Color = ChaiTheme.colors.textNormalColor
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = LocalChaiTypography.current.label,
+        style = ChaiTheme.typography.label,
         color = color
     )
 }

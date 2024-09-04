@@ -35,6 +35,27 @@ import com.droidconke.chai.typography.ChaiTypography
 import com.droidconke.chai.typography.LocalChaiTypography
 import com.droidconke.chai.typography.chaiTypography
 
+
+object ChaiTheme {
+
+    /**
+     * Accessing the current typography style
+     */
+    val typography: ChaiTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalChaiTypography.current
+
+    /**
+     * Accessing the current colors style
+     */
+    val colors: ChaiColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalChaiColorsPalette.current
+
+}
+
 @Composable
 fun ChaiTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
