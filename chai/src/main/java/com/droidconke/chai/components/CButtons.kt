@@ -91,7 +91,7 @@ fun CPrimaryButton(
         ),
         shape = CShapes.extraLarge,
         content = {
-            CPrimaryButtonText(text = title, textAllCaps = true)
+            ChaiTextButton(text = title)
         }
     )
 }
@@ -111,7 +111,7 @@ fun COutlinedPrimaryButton(
     ) {
         Icon(imageVector = icon, contentDescription = "", modifier = Modifier.padding(5.dp))
         Space5
-        CPrimaryButtonText(text = title, textAllCaps = false)
+        ChaiTextButton(text = title)
     }
 }
 

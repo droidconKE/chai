@@ -31,10 +31,35 @@ import com.droidconke.chai.colors.ChaiColors
 import com.droidconke.chai.colors.ChaiDarkColorPalette
 import com.droidconke.chai.colors.ChaiLightColorPalette
 import com.droidconke.chai.colors.LocalChaiColorsPalette
+import com.droidconke.chai.typography.ChaiTypography
+import com.droidconke.chai.typography.LocalChaiTypography
+import com.droidconke.chai.typography.chaiTypography
+
+
+object ChaiTheme {
+
+    /**
+     * Accessing the current typography style
+     */
+    val typography: ChaiTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalChaiTypography.current
+
+    /**
+     * Accessing the current colors style
+     */
+    val colors: ChaiColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalChaiColorsPalette.current
+
+}
 
 @Composable
 fun ChaiTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    typography: ChaiTypography = chaiTypography(),
     content: @Composable () -> Unit
 ) {
     val view = LocalView.current
@@ -50,7 +75,8 @@ fun ChaiTheme(
     }
 
     CompositionLocalProvider(
-        LocalChaiColorsPalette provides customColorsPalette
+        LocalChaiTypography provides typography,
+        LocalChaiColorsPalette provides customColorsPalette,
     ) {
         MaterialTheme(
             content = content
