@@ -20,10 +20,11 @@ To learn more about this look at this [Why Design Systems](https://github.com/dr
 Chai is swahili word for tea.
 This is the droidconKE design system.
 
-Link to the [design doc](https://xd.adobe.com/view/eb1ed4ed-fd4d-4ba2-b2f7-a91c7379a022-be4d/screen/cfea72b5-9007-4335-ae86-9162594c094f/)
+Here are the design docs links :
+- [Design System](https://xd.adobe.com/view/8fafeec6-a92d-48dd-bab9-f3e46775257a-dafc/)
+- [Screens](https://xd.adobe.com/view/eb1ed4ed-fd4d-4ba2-b2f7-a91c7379a022-be4d/screen/cfea72b5-9007-4335-ae86-9162594c094f/)
 
 This Project shows how you can use this design system in a multi module app monoRepo set up.
-
 
 ### Structure Of Chai's Design System Project,
 
