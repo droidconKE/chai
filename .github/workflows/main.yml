@@ -4,29 +4,17 @@ on:
     pull_request:
         branches:
             - main
-    push:
-        branches:
-            - main
+
+concurrency:
+  group: ${{ github.workflow }} - ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    cancel-previous:
-        name: Cancel Previous Jobs
-        permissions:
-            contents: read
-            actions: write
-        runs-on: ubuntu-latest
-        steps:
-            - name: Cancel Previous Build
-              uses: styfle/cancel-workflow-action@0.12.1
-              with:
-                  access_token: ${{ github.token }}
-
     lint:
         name: Lint
         permissions:
             contents: read
         runs-on: ubuntu-latest
-        needs: cancel-previous
         steps:
             - name: Checkout
               uses: actions/checkout@v4
