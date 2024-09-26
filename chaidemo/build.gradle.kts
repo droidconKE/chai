@@ -70,6 +70,7 @@ android {
 
 dependencies {
     implementation(project(":chai"))
+    implementation(project(":chailinter:linter"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -89,3 +90,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
+//tasks.register("chaiLint"){
+//    dependsOn("lint")
+//}
