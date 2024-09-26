@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace = "com.droidconke.chailinter.linter"
+    compileSdk = 35
 }
 
 dependencies {
