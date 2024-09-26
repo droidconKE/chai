@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = ("chai")
-//include(":chai")
 include(":chaidemo")
-include(":chailinter")
+include(":chailinter:rules")
+include(":chailinter:linter")
 include(":chai")
