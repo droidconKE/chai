@@ -25,9 +25,9 @@ import org.jetbrains.uast.*
 
 /**
  * This checks whether there are incorrect usages of Compose Material APIs over equivalents in
- * the chai design system. Ideally its to be as dictatorial as possible to prevent people from using 
+ * the chai design system. Ideally its to be as dictatorial as possible to prevent people from using
  * default material designs and moving away from the design system.
- * 
+ *
  * We have tried to capture as much as many UI scenarios as possible in chai. Incase of a missing
  * design component, then it is recommended to submit an issue and then implement the
  * component missing in chai.
@@ -61,7 +61,7 @@ class ChaiIncorrectUsageDetector : Detector(), Detector.UastScanner {
             override fun visitSimpleNameReferenceExpression(node: USimpleNameReferenceExpression) {
                 val className = (node.resolve() as? PsiMember)?.containingClass?.qualifiedName ?: return
             }
-            
+
         }
     }
     /*Adding this as an empty array but will be replaced later when adding implementations*/

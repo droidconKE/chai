@@ -40,12 +40,11 @@ class ChaiLinterIssueRegistry : IssueRegistry() {
      * system usage based on the chai design system. They will exist in the [detectors] package.
      *
      */
+    @Suppress("UNCHECKED_CAST")
     override val issues: List<Issue> = listOf(
         ChaiIncorrectUsageDetector.ISSUE,
         IncorrectColourUsageDetector.ISSUE,
-
     ) as List<Issue>
-
 
     override val api: Int = CURRENT_API
     override val minApi: Int = 12
