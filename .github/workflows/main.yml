@@ -4,9 +4,11 @@ on:
     pull_request:
         branches:
             - main
+            - develop
     push:
         branches:
             - main
+            - develop
 
 jobs:
     cancel-previous:
@@ -16,10 +18,10 @@ jobs:
             actions: write
         runs-on: ubuntu-latest
         steps:
-            - name: Cancel Previous Build
-              uses: styfle/cancel-workflow-action@0.12.1
-              with:
-                  access_token: ${{ github.token }}
+            -   name: Cancel Previous Build
+                uses: styfle/cancel-workflow-action@0.13.0
+                with:
+                    access_token: ${{ github.token }}
 
     lint:
         name: Lint
@@ -28,20 +30,32 @@ jobs:
         runs-on: ubuntu-latest
         needs: cancel-previous
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Validate Gradle Wrapper
-              uses: gradle/wrapper-validation-action@v1
-            - name: Copy CI gradle.properties
-              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-            - name: Set up JDK
-              uses: actions/setup-java@v4
-              with:
-                  distribution: 'zulu'
-                  java-version: '17'
-                  cache: 'gradle'
-            - name: Lint
-              run: make clean lint
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Validate Gradle Wrapper
+                uses: gradle/actions/wrapper-validation@v4
+            -   name: Copy CI gradle.properties
+                run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '21'
+            -   name: Setup Gradle
+                uses: gradle/actions/setup-gradle@v4
+                with:
+                    cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+            -   name: Lint
+                run: ./gradlew lintDebug --build-cache --parallel --configure-on-demand
+            -   name: Upload Lint Reports
+                if: always()
+                uses: actions/upload-artifact@v4
+                with:
+                    name: lint-reports
+                    path: |
+                        **/build/reports/lint-results-*.html
+                        **/build/reports/lint-results-*.xml
+                    retention-days: 7
 
     build:
         name: Build
@@ -50,22 +64,37 @@ jobs:
         runs-on: ubuntu-latest
         needs: lint
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Validate Gradle Wrapper
-              uses: gradle/wrapper-validation-action@v1
-            - name: Copy CI gradle.properties
-              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-            - name: Set up JDK
-              uses: actions/setup-java@v4
-              with:
-                  distribution: 'zulu'
-                  java-version: '17'
-                  cache: 'gradle'
-            - name: APK
-              run: make clean assemble
-            - name: Bundle
-              run: make clean bundle
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Copy CI gradle.properties
+                run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '21'
+            -   name: Setup Gradle
+                uses: gradle/actions/setup-gradle@v4
+                with:
+                    cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+            -   name: Build APK
+                run: ./gradlew assembleDebug --build-cache --parallel --configure-on-demand
+            -   name: Build Bundle
+                run: ./gradlew bundleDebug --build-cache --parallel --configure-on-demand
+            -   name: Upload APK
+                uses: actions/upload-artifact@v4
+                with:
+                    name: apk-debug
+                    path: |
+                        **/build/outputs/apk/**/*.apk
+                    retention-days: 14
+            -   name: Upload Bundle
+                uses: actions/upload-artifact@v4
+                with:
+                    name: bundle-debug
+                    path: |
+                        **/build/outputs/bundle/**/*.aab
+                    retention-days: 14
 
     test:
         name: Test (unit)
@@ -74,39 +103,101 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Validate Gradle Wrapper
-              uses: gradle/wrapper-validation-action@v1
-            - name: Copy CI gradle.properties
-              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-            - name: Set up JDK
-              uses: actions/setup-java@v4
-              with:
-                  distribution: 'zulu'
-                  java-version: '17'
-                  cache: 'gradle'
-            - name: Test
-              run: make clean test
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Copy CI gradle.properties
+                run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '21'
+            -   name: Setup Gradle
+                uses: gradle/actions/setup-gradle@v4
+                with:
+                    cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+            -   name: Run Unit Tests
+                run: ./gradlew testDebugUnitTest --build-cache --parallel --configure-on-demand
+            -   name: Upload Test Reports
+                if: always()
+                uses: actions/upload-artifact@v4
+                with:
+                    name: unit-test-reports
+                    path: |
+                        **/build/reports/tests/**
+                        **/build/test-results/**
+                    retention-days: 7
 
     androidTest:
         name: Test (instrumented)
         permissions:
             contents: read
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
         timeout-minutes: 45
         needs: test
+        if: |
+            github.ref == 'refs/heads/main' || 
+            github.ref == 'refs/heads/develop' ||
+            contains(github.event.head_commit.message, '[test-instrumented]')
+        strategy:
+            matrix:
+                api-level: [ 34 ]
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Validate Gradle Wrapper
-              uses: gradle/wrapper-validation-action@v1
-            - name: Copy CI gradle.properties
-              run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
-            - name: Set up JDK
-              uses: actions/setup-java@v4
-              with:
-                  distribution: 'zulu'
-                  java-version: '17'
-                  cache: 'gradle'
-
+            -   name: Checkout
+                uses: actions/checkout@v4
+            -   name: Copy CI gradle.properties
+                run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '21'
+            -   name: Setup Gradle
+                uses: gradle/actions/setup-gradle@v4
+                with:
+                    cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+            # Enable KVM for hardware acceleration on Ubuntu runners (required for Android Emulator performance)
+            -   name: Enable KVM group perms
+                run: |
+                    echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+                    sudo udevadm control --reload-rules
+                    sudo udevadm trigger --name-match=kvm
+            # Cache AVD to avoid recreating the emulator on every run (saves ~3-5 minutes)
+            -   name: AVD cache
+                uses: actions/cache@v4
+                id: avd-cache
+                with:
+                    path: |
+                        ~/.android/avd/*
+                        ~/.android/adb*
+                    key: avd-${{ matrix.api-level }}
+            # Create AVD snapshot only if not cached (first run only)
+            -   name: Create AVD and generate snapshot for caching
+                if: steps.avd-cache.outputs.cache-hit != 'true'
+                uses: reactivecircus/android-emulator-runner@v2
+                with:
+                    api-level: ${{ matrix.api-level }}
+                    arch: x86_64
+                    force-avd-creation: false
+                    emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+                    disable-animations: true
+                    script: echo "Generated AVD snapshot for caching."
+            # Run instrumented tests on the Android emulator
+            -   name: Run Instrumented Tests
+                uses: reactivecircus/android-emulator-runner@v2
+                with:
+                    api-level: ${{ matrix.api-level }}
+                    arch: x86_64
+                    force-avd-creation: false
+                    emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+                    disable-animations: true
+                    script: ./gradlew connectedDebugAndroidTest --build-cache --parallel --configure-on-demand
+            -   name: Upload Instrumented Test Reports
+                if: always()
+                uses: actions/upload-artifact@v4
+                with:
+                    name: instrumented-test-reports-api-${{ matrix.api-level }}
+                    path: |
+                        **/build/reports/androidTests/**
+                        **/build/outputs/androidTest-results/**
+                    retention-days: 7
