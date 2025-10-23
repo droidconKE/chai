@@ -43,6 +43,29 @@ To Implement chai,
 
 See the example implementation that  exists by running [chaidemo] that contains the various implementations of the elements of the design system.
 
+## CI/CD Quick Start
+
+The project uses GitHub Actions for continuous integration with optimized parallel execution and
+caching.
+
+**Quick commands to test locally:**
+
+```bash
+# Run all checks (matches CI)
+./gradlew clean lintDebug assembleDebug testDebugUnitTest --configuration-cache
+
+# Trigger instrumented tests on PR
+git commit -m "Your message [test-instrumented]"
+```
+
+📖 **See [CI Quick Start Guide](./docs/quick-start-ci.md)** for complete local development setup and
+troubleshooting.
+
+For detailed optimization information, see:
+
+- [CI Workflow Guide](./docs/ci-workflow-guide.md) - Job structure and timing
+- [CI Build Optimization](./docs/ci-build-optimization.md) - Performance details
+
 ### [Running Project]
 Known issue with gradle:
 - If you run into an error when building project, ist probably a false negative.
