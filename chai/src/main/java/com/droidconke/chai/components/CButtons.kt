@@ -18,8 +18,6 @@ package com.droidconke.chai.components
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.Send
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -37,6 +35,8 @@ import com.droidconke.chai.utils.Alpha.AlphaDisabled
 import com.droidconke.chai.utils.CShapes
 import com.droidconke.chai.utils.ChaiPreview
 import com.droidconke.chai.utils.Space5
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Send
 
 @Composable
 fun CButton(
@@ -178,7 +178,7 @@ fun CPrimaryOutlinedButtonLightPreview() {
             onClick = { },
             title = PREVIEW_OUTLINE_BUTTON_TITLE,
             modifier = Modifier.fillMaxWidth(),
-            icon = Icons.AutoMirrored.Outlined.Send
+            icon = Icons.AutoMirrored.Filled.Send
         )
     }
 }
@@ -191,7 +191,7 @@ fun CPrimaryOutlinedButtonDarkPreview() {
             onClick = { },
             title = PREVIEW_OUTLINE_BUTTON_TITLE,
             modifier = Modifier.fillMaxWidth(),
-            icon = Icons.AutoMirrored.Outlined.Send
+            icon = Icons.AutoMirrored.Filled.Send
         )
     }
 }
@@ -204,7 +204,7 @@ fun PrimaryOutlinedButtonPreview() {
             onClick = { },
             title = PREVIEW_OUTLINE_BUTTON_TITLE,
             modifier = Modifier.fillMaxWidth(),
-            icon = Icons.AutoMirrored.Outlined.Send
+            icon = Icons.AutoMirrored.Filled.Send
         )
     }
 }
