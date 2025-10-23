@@ -1,7 +1,6 @@
 
 [![Chai CI 🍵](https://github.com/droidconKE/chai/actions/workflows/main.yml/badge.svg)](https://github.com/droidconKE/chai/actions/workflows/main.yml)
 
-
 <p align="center">
   <a href="https://github.com/droidconKE/droidconKE2022Android">
     <img src="https://raw.githubusercontent.com/droidconKE/iconPack/master/images/chaicover.png" alt="Chai Design Logo" width=330 height=150>
