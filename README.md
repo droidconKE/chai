@@ -71,9 +71,16 @@ or just press the gradle icon with the downward arrow at the top right of androi
   - [ ] Build Logic setUP
   - [ ] Convention Plugins setUp
 - [ ] Sample Application
-
+- [ ] Testing
+    - [ ] Add Compose UI tests for design system components (instrumented tests)
+        - [ ] Test component rendering (CPrimaryButton, ChaiText, etc.)
+        - [ ] Test theme switching behavior (light/dark mode)
+        - [ ] Test accessibility semantics
+        - [ ] Add screenshot/visual regression tests
+    - [ ] Add E2E tests example for chaidemo app
+        - [ ] Test complete user flow: Navigate through all demo screens
+        - [ ] Test component interactions in real app context
+        - [ ] Verify all design system components display correctly in demo
 
 ## Contributing
  [Hop on here for a chat and ask questions](https://github.com/droidconKE/chai/discussions). NO DMs please :)
-
-
