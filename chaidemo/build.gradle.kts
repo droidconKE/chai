@@ -42,6 +42,9 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+        getByName("debug") {
+            isMinifyEnabled = false
+        }
     }
 
     compileOptions {
@@ -57,6 +60,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = false
     }
 
     composeOptions {

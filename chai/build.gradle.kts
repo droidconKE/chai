@@ -39,7 +39,20 @@ android {
                 "proguard-rules.pro"
             )
         }
+        // Optimize debug builds for CI
+        //See if i can add this to build Logic
+        debug {
+            isMinifyEnabled = false
+        }
     }
+
+    // Disable BuildConfig generation for library (not needed, saves build time)
+    //See if i can add this to build Logic
+    buildFeatures {
+        buildConfig = false
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -48,9 +61,6 @@ android {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
         }
-    }
-    buildFeatures {
-        compose = true
     }
 
     composeOptions {
