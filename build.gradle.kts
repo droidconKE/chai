@@ -21,19 +21,3 @@ subprojects {
         enabled = System.getenv("CI") != "true"
     }
 }
-
-// Apply performance optimizations to all subprojects
-subprojects {
-    tasks.withType<JavaCompile>().configureEach {
-        options.isIncremental = true
-    }
-
-    // Skip unnecessary tasks in CI
-    //See if i can add this to build Logic
-    tasks.matching {
-        it.name.contains("lint", ignoreCase = true) &&
-                it.name.contains("Baseline", ignoreCase = true)
-    }.configureEach {
-        enabled = System.getenv("CI") != "true"
-    }
-}
