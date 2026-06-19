@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     `java-library`
     kotlin("jvm")
@@ -22,20 +20,12 @@ plugins {
     id("com.android.lint")
 }
 
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
 kotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
-    }
+    jvmToolchain(21)
 }
 
 tasks.named<Test>("test") {
-    useJUnit()
+    useJUnitPlatform()
 }
 
 lint {
@@ -48,6 +38,8 @@ dependencies {
     compileOnly(libs.lint.api)
 
     testImplementation(libs.lint.api)
-    testImplementation(libs.junit)
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
     testImplementation(libs.android.lint.tests)
 }
