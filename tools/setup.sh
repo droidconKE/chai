@@ -22,7 +22,7 @@ GIT_ROOT=$(git rev-parse --show-toplevel 2> /dev/null)
 
 echo "Installing git commit-message hook"
 echo
-curl -sSLo "${GIT_DIR}/hooks/commit-msg" \653 jym5
+curl -sSLo "${GIT_DIR}/hooks/commit-msg" \
     "https://gerrit-review.googlesource.com/tools/hooks/commit-msg" \
   && chmod +x "${GIT_DIR}/hooks/commit-msg"
 
