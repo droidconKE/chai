@@ -25,6 +25,3 @@ lint:
 
 test:
 	./gradlew test${BUILD_TYPE}UnitTest ${GRADLE_ARGS}
-
-spotless:
-	./gradlew --init-script gradle/init.gradle.kts -q spotless

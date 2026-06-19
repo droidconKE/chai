@@ -31,11 +31,10 @@ The Chai Design System Project Architecture is captured in detail:
 1. [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
 2. [Architecture](https://github.com/droidconKE/chai/blob/master/docs/architecture.md) -  The architecture of the project
 3. [Chai Design System Architecture](https://github.com/droidconKE/chai/blob/master/docs/chaiArchitecture.md) -  The architecture of the design system
-4. [buildlogic](https://github.com/droidconKE/chai/blob/master/docs/buildlogic.md) -  Handles how we build the app wiyth gradle, ditches the build src in favour of convengion polugins.
+4. [buildlogic](https://github.com/droidconKE/chai/blob/master/docs/buildlogic.md) -  Handles how we build the app with gradle, ditches the build src in favour of convention plugins.
 5. [chaiLinter](https://github.com/droidconKE/chai/blob/master/docs/chaiLinter.md) -  Explains the design system linter
 6. [Atoms](https://github.com/droidconKE/chai/blob/master/docs/atoms.md) - Explains the atoms in the design system
 7. [Components](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
-8. [chaidemop](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
 
 ## Implementing Chai
 
@@ -68,7 +67,7 @@ For detailed optimization information, see:
 
 ### [Running Project]
 Known issue with gradle:
-- If you run into an error when building project, ist probably a false negative.
+- If you run into an error when building project, it's probably a false negative.
 - Run(Or just press green play icon on android studio from the left here:
  `./gradlew sync` and output complete html report should not display errors then
   `./gradlew tasks` to see a list of tasks you can run from the root of the project 

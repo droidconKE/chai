@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Fast local pre-commit — catch cheap failures before they reach the cloud.
+#
+# Shell-only, runs in well under a second: the agent-tooling lint, the
+# design-system guard rail, and check-docs on any staged .md. Heavy verification
+# (lint + tests + build) is deferred to pre-push.
+#
+# Escape hatch: SKIP_LOCAL_CI=1 git commit …
+set -euo pipefail
+
+[ "${SKIP_LOCAL_CI:-}" = "1" ] && { echo "pre-commit: skipped (SKIP_LOCAL_CI=1)"; exit 0; }
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+if [ -x scripts/check-agent-tooling.sh ]; then
+  echo "pre-commit: agent-tooling check…"
+  ./scripts/check-agent-tooling.sh >/dev/null
+fi
+
+if [ -x scripts/check-design-system-usage.sh ]; then
+  echo "pre-commit: design-system check…"
+  ./scripts/check-design-system-usage.sh >/dev/null
+fi
+
+# Validate only the docs being committed.
+staged_md="$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.md$' || true)"
+if [ -n "$staged_md" ] && [ -x scripts/check-docs.sh ]; then
+  echo "pre-commit: check-docs on staged .md…"
+  # shellcheck disable=SC2086
+  ./scripts/check-docs.sh $staged_md
+fi
+
+echo "pre-commit: ok"

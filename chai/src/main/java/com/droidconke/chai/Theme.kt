@@ -20,11 +20,12 @@ import android.content.Context
 import android.content.ContextWrapper
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import com.droidconke.chai.colors.ChaiColors
@@ -67,10 +68,11 @@ fun ChaiTheme(
 
     if (!view.isInEditMode) {
         SideEffect {
-            val activity = view.context.findActivity()
-            activity.window.statusBarColor = customColorsPalette.background.toArgb()
-            WindowCompat.getInsetsController(activity.window, view).isAppearanceLightStatusBars =
-                !darkTheme
+            val window = view.context.findActivity().window
+            // Draw edge-to-edge so the Chai background shows behind the (transparent) status bar.
+            // Replaces the deprecated window.statusBarColor, which is ignored on API 35+.
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 
@@ -79,9 +81,35 @@ fun ChaiTheme(
         LocalChaiColorsPalette provides customColorsPalette,
     ) {
         MaterialTheme(
+            colorScheme = customColorsPalette.toMaterialColorScheme(darkTheme),
             content = content
         )
     }
+}
+
+/**
+ * Bridges the semantic [ChaiColors] palette into a Material 3 [androidx.compose.material3.ColorScheme]
+ * so that any raw Material component placed inside [ChaiTheme] is branded with Chai colors instead of
+ * the stock Material defaults. Chai components should still prefer reading [ChaiTheme.colors] directly.
+ */
+private fun ChaiColors.toMaterialColorScheme(darkTheme: Boolean) = if (darkTheme) {
+    darkColorScheme(
+        primary = primary,
+        background = background,
+        surface = surfaces,
+        onPrimary = secondaryButtonTextColor,
+        onBackground = textNormalColor,
+        onSurface = textNormalColor
+    )
+} else {
+    lightColorScheme(
+        primary = primary,
+        background = background,
+        surface = surfaces,
+        onPrimary = secondaryButtonTextColor,
+        onBackground = textNormalColor,
+        onSurface = textNormalColor
+    )
 }
 
 val MaterialTheme.chaiColorsPalette: ChaiColors

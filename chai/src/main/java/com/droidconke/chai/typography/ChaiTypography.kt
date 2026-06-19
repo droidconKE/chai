@@ -3,7 +3,7 @@ package com.droidconke.chai.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
-import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
@@ -147,4 +147,4 @@ fun chaiTypography(
 )
 
 internal val LocalChaiTypography: ProvidableCompositionLocal<ChaiTypography>
-    get() = compositionLocalOf { ChaiTypography() }
+    get() = staticCompositionLocalOf { ChaiTypography() }

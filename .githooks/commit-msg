@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# commit-msg shim.
+#
+# Installing repo-local hooks sets core.hooksPath to .githooks, which OVERRIDES
+# any global core.hooksPath. Contributors here keep a global commit-msg hook
+# (format validation, trailer stripping). This shim re-invokes that global hook
+# so its behavior survives the takeover, then exits cleanly when there isn't one.
+#
+# It only delegates to a DIFFERENT file than itself, so it can never recurse.
+set -euo pipefail
+
+msg_file="$1"
+
+global_dir="$(git config --global core.hooksPath || true)"
+global_dir="${global_dir/#\~/$HOME}"
+
+if [ -n "$global_dir" ] && [ -x "$global_dir/commit-msg" ]; then
+  self="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
+  target="$(cd "$global_dir" && pwd)/commit-msg"
+  if [ "$self" != "$target" ]; then
+    exec "$target" "$msg_file"
+  fi
+fi
+
+exit 0

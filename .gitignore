@@ -39,3 +39,7 @@ captures/
 # Generated Kotlin folder
 .kotlin
 
+# AI infra: skills/agents/scripts are committed; memory + scratch are per-user/local
+.ai/memory/
+.ai/tmp/
+

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Blocking pre-push — run the same checks the cloud CI runs, before you push.
+#
+# Mirrors README's CI command (lint + assemble + unit tests). Slower than
+# pre-commit because it starts Gradle, so it runs at push time, not per commit.
+# Instrumented tests are NOT run here (they need a device and are gated in CI by
+# a [test-instrumented] commit tag).
+#
+# Bypass once (emergencies only): SKIP_LOCAL_CI=1 git push
+set -euo pipefail
+
+[ "${SKIP_LOCAL_CI:-}" = "1" ] && { echo "pre-push: skipped (SKIP_LOCAL_CI=1)"; exit 0; }
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+run() {
+  echo "pre-push: $* …"
+  if ! "$@"; then
+    echo "pre-push: FAILED at: $*" >&2
+    echo "          fix it, or bypass once with: SKIP_LOCAL_CI=1 git push" >&2
+    exit 1
+  fi
+}
+
+run ./gradlew lintDebug testDebugUnitTest assembleDebug --configuration-cache
+
+echo "pre-push: ok"
