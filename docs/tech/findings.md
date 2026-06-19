@@ -8,6 +8,24 @@ The bones are good. There is a semantic color palette, typography atoms, a theme
 
 Severity legend: **High** (broken or misleading), **Medium** (should fix before release), **Low** (polish).
 
+## Resolution status
+
+A fix pass in June 2026 closed the low-risk findings. Resolved since this audit was written:
+
+- `ChaiColors` is now wired into `MaterialTheme`, and the buttons read the palette directly. The "palette is decorative" and "`CPrimaryButton` has no container color" findings no longer hold.
+- The dead `Space5` / `Space30` statements are real `Spacer`s now, both in `CButtons.kt` and the demo screen.
+- The buttons demo screen renders the actual components instead of a lone text label.
+- Typography uses `staticCompositionLocalOf`, matching the colors token.
+- The ignored `kotlinCompilerExtensionVersion` is gone from both Android modules.
+- The duplicate copyright header in the lint build script is removed.
+- `CInputFiels.kt` is renamed to `CInputFields.kt` (the file is still a stub; see backlog).
+- `tools/setup.sh` has a working curl line, the broken `gradle/init.gradle.kts` spotless references are removed from the Makefile and pre-push, and `todo.yml` now watches `develop`.
+- README typos and the bogus "chaidemop" link are fixed.
+
+Still open, with detail in [`backlog.md`](./backlog.md): the lint detectors, the remaining stub components, real tests, the full dependency pass, convention plugins, the Java 8 target, the empty docs, edge-to-edge status bar, the multiplatform plugin, and the `ChaiSteal` rename.
+
+A few items in the original audit no longer apply to the current tree: the manifests carry no `package=` attribute, and the README links to `docs/chaiArchitecture.md`, `docs/atoms.md`, and `docs/components.md` all resolve to real files.
+
 ## Architecture and design-system correctness
 
 **The custom `ChaiColors` palette is defined but barely used. (High)**
@@ -154,6 +172,8 @@ The bumps above are a start, but the project should do a deliberate pass over th
 - Treat the update as its own change: bump, build, run `lint` / `detekt` / tests, and check the Compose and AGP release notes for breaking changes (especially around the deprecated `statusBarColor` and manifest `package` items noted earlier). Keep it on this branch and out of unrelated commits.
 
 ## Prioritized recommendations
+
+Items 1, 2, and 4 are done, and 5 and 7 are partly done (see Resolution status above). The rest are tracked in [`backlog.md`](./backlog.md).
 
 1. **Wire `ChaiColors` into the theme.** Pass a `colorScheme` derived from the Chai palette into `MaterialTheme`, or have components read `ChaiTheme.colors` / `LocalChaiColorsPalette` directly. Today the palette is decorative. (Theme.kt, CButtons.kt)
 2. **Fix `CPrimaryButton` colors** so the primary button has a branded container, and replace the bare `Space*` statements with `Spacer*()` calls. (CButtons.kt, ChaiButtonsDemoScreen.kt)
