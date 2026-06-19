@@ -16,13 +16,14 @@
 package com.droidconke.chai.components
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -86,8 +87,10 @@ fun CPrimaryButton(
         isEnabled = isEnabled,
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            contentColor = MaterialTheme.colorScheme.primary,
-            disabledContentColor = MaterialTheme.colorScheme.primary.copy(alpha = AlphaDisabled)
+            containerColor = ChaiTheme.colors.secondaryButtonColor,
+            contentColor = ChaiTheme.colors.secondaryButtonTextColor,
+            disabledContainerColor = ChaiTheme.colors.secondaryButtonColor.copy(alpha = AlphaDisabled),
+            disabledContentColor = ChaiTheme.colors.secondaryButtonTextColor.copy(alpha = AlphaDisabled)
         ),
         shape = CShapes.extraLarge,
         content = {
@@ -107,10 +110,10 @@ fun COutlinedPrimaryButton(
         onClick = onClick,
         modifier = modifier,
         shape = CShapes.extraLarge,
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.primary)
+        colors = ButtonDefaults.outlinedButtonColors(contentColor = ChaiTheme.colors.outlinedButtonTextColor)
     ) {
         Icon(imageVector = icon, contentDescription = "", modifier = Modifier.padding(5.dp))
-        Space5
+        Spacer(Modifier.width(Space5))
         ChaiTextButton(text = title)
     }
 }
