@@ -35,6 +35,7 @@ The Chai Design System Project Architecture is captured in detail:
 5. [chaiLinter](https://github.com/droidconKE/chai/blob/master/docs/chaiLinter.md) -  Explains the design system linter
 6. [Atoms](https://github.com/droidconKE/chai/blob/master/docs/atoms.md) - Explains the atoms in the design system
 7. [Components](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
+8. [Versioning](https://github.com/droidconKE/chai/blob/master/docs/versioning.md) -  Semantic Versioning scheme and the release flow
 
 ## Implementing Chai
 
