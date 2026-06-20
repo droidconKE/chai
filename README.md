@@ -36,6 +36,7 @@ The Chai Design System Project Architecture is captured in detail:
 6. [Atoms](./docs/atoms.md) - Explains the atoms in the design system
 7. [Components](./docs/components.md) -  Design system components
 8. [Versioning](./docs/versioning.md) -  Semantic Versioning scheme and the release flow
+9. [Automated Workflow](./docs/automatedWorkflow.md) -  How RenovateBot groups and raises dependency-update PRs
 
 ## Implementing Chai
 
