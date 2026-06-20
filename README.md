@@ -12,7 +12,7 @@
 
 What is a design system:
 
-To learn more about this look at this [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
+To learn more about this look at this [Why Design Systems](./docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
 
 ## About Chai
 
@@ -28,14 +28,14 @@ This Project shows how you can use this design system in a multi module app mono
 ### Structure Of Chai's Design System Project,
 
 The Chai Design System Project Architecture is captured in detail:
-1. [Why Design Systems](https://github.com/droidconKE/chai/blob/master/docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
-2. [Architecture](https://github.com/droidconKE/chai/blob/master/docs/architecture.md) -  The architecture of the project
-3. [Chai Design System Architecture](https://github.com/droidconKE/chai/blob/master/docs/chaiArchitecture.md) -  The architecture of the design system
-4. [buildlogic](https://github.com/droidconKE/chai/blob/master/docs/buildlogic.md) -  Handles how we build the app with gradle, ditches the build src in favour of convention plugins.
-5. [chaiLinter](https://github.com/droidconKE/chai/blob/master/docs/chaiLinter.md) -  Explains the design system linter
-6. [Atoms](https://github.com/droidconKE/chai/blob/master/docs/atoms.md) - Explains the atoms in the design system
-7. [Components](https://github.com/droidconKE/chai/blob/master/docs/components.md) -  Design system components
-8. [Versioning](https://github.com/droidconKE/chai/blob/master/docs/versioning.md) -  Semantic Versioning scheme and the release flow
+1. [Why Design Systems](./docs/whyDesignSystems.md) -  Explains the need for a design system in the context of compose.
+2. [Architecture](./docs/architecture.md) -  The architecture of the project
+3. [Chai Design System Architecture](./docs/chaiArchitecture.md) -  The architecture of the design system
+4. [buildlogic](./docs/buildlogic.md) -  Handles how we build the app with gradle, ditches the build src in favour of convention plugins.
+5. [chaiLinter](./docs/chaiLinter.md) -  Explains the design system linter
+6. [Atoms](./docs/atoms.md) - Explains the atoms in the design system
+7. [Components](./docs/components.md) -  Design system components
+8. [Versioning](./docs/versioning.md) -  Semantic Versioning scheme and the release flow
 
 ## Implementing Chai
 
