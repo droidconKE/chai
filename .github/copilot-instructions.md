@@ -1,0 +1,17 @@
+# Copilot instructions
+
+GitHub Copilot reads this file automatically. The full, tool-neutral guidance
+for this repo lives in [`AGENTS.md`](../AGENTS.md) — read it for conventions,
+guard rails, and where skills/agents/memory live.
+
+The non-negotiables, repeated here because Copilot does not follow links
+(see `AGENTS.md` for the authoritative version):
+
+- **Design system only.** In `chai`/`chaidemo` source use Chai components and
+  tokens (`ChaiTheme`, `ChaiColors`, the `C*` components, `Space*`/`Spacer*`).
+  Never raw Material 3 components or hardcoded `Color(0x…)` / `.dp` literals.
+- **Compose previews** use `@ChaiPreview`, not `@Preview`.
+- **Branches** target `develop`, not `main`. Prefixes: `feature/`, `fix/`, `docs/`.
+- **Commits**: past tense, concise subject, no period, no body, no
+  conventional-commits prefix. ("Added X", not "feat: add x.")
+- **Never** `git push --no-verify` or `--force`. Fix hook failures instead.
